@@ -38,6 +38,9 @@
 //          will diplay the question asked and the answer
 
 $(() => {
+  const moves = 6
+  const $firstQuestion = $('.characteristics')
+
 
   const characters = [
     {name: 'Picard', rank: 'Captain', gender: 'Male', species: 'Human', affiliation: 'Federation', image: './images/picard.png'},
@@ -46,16 +49,26 @@ $(() => {
   ];
 
 
-
   // let $characteristicChosen = .characteristics.value
 
-
-
-  let result = characters.map(function(a) {
-    return a.name;
+  $firstQuestion.on('change', (e) => {
+    const option = $(e.target).find('option:selected');
+    let value = $(option).attr('value');
+    $secondQuestion(value);
+    console.log(value);
+    // console.log($firstQuestion.html(value));
   });
 
-  console.log(result);
+  function $secondQuestion(value) {
+    let attributeList = characters.map(function(a) {
+      return a[value];
+    });
+    console.log(attributeList);
+  }
+
+
+  //
+  //
 
   // var reformattedArray = kvArray.map(function(obj) {
   //    var rObj = {};
@@ -64,25 +77,26 @@ $(() => {
   // });
 
   //Count Down Clock
-  let timer2 = '00:05';
-  const $youLoseImage = '<img src="./images/Judge_Q_Head.png">';
 
-  const interval = setInterval(function() {
-    const timer = timer2.split(':');
-    let minutes = parseInt(timer[0], 10);
-    let seconds = parseInt(timer[1], 10);
-    --seconds;
-    minutes = (seconds < 0) ? --minutes : minutes;
-    if (minutes < 0) {
-      clearInterval(interval);
-      $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
-      $('.countdown-bar').html(`What a shame! YOU have lost one of you crew members to the continuum. ${$youLoseImage}`);
-    }
-    seconds = (seconds < 0) ? 59 : seconds;
-    seconds = (seconds < 10) ? '0' + seconds : seconds;
-    // minutes = (minutes < 10) ?  minutes : minutes;
-    $('.time').html(`${minutes} minutes : ${seconds} seconds`);
-    timer2 = minutes + ':' + seconds;
-  }, 1000);
+  // let timer2 = '00:05';
+  // const $youLoseImage = '<img src="./images/Judge_Q_Head.png">';
+  //
+  // const interval = setInterval(function() {
+  //   const timer = timer2.split(':');
+  //   let minutes = parseInt(timer[0], 10);
+  //   let seconds = parseInt(timer[1], 10);
+  //   --seconds;
+  //   minutes = (seconds < 0) ? --minutes : minutes;
+  //   if (minutes < 0) {
+  //     clearInterval(interval);
+  //     $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
+  //     $('.countdown-bar').html(`What a shame! YOU have lost one of you crew members to the continuum. ${$youLoseImage}`);
+  //   }
+  //   seconds = (seconds < 0) ? 59 : seconds;
+  //   seconds = (seconds < 10) ? '0' + seconds : seconds;
+  //   // minutes = (minutes < 10) ?  minutes : minutes;
+  //   $('.time').html(`${minutes} minutes : ${seconds} seconds`);
+  //   timer2 = minutes + ':' + seconds;
+  // }, 1000);
 
 });
