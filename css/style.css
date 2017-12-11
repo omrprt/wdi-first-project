@@ -73,6 +73,7 @@ img {
 
 .question-display-area {
   display: flex;
+  flex-direction: column;
   background-color: #0099f6;
   flex: 1;
   border-radius: 20px;

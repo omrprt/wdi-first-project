@@ -38,8 +38,11 @@
 //          will diplay the question asked and the answer
 
 $(() => {
-  const moves = 6
-  const $firstQuestion = $('.characteristics')
+  const moves = 6;
+  const $firstOption = $('.characteristics');
+  const $secondOption = $('.characteristic-values')
+  const $submitQuestion = $('.question-submit');
+
 
 
   const characters = [
@@ -49,54 +52,64 @@ $(() => {
   ];
 
 
-  // let $characteristicChosen = .characteristics.value
-
-  $firstQuestion.on('change', (e) => {
-    const option = $(e.target).find('option:selected');
-    let value = $(option).attr('value');
-    $secondQuestion(value);
-    console.log(value);
-    // console.log($firstQuestion.html(value));
-  });
-
   function $secondQuestion(value) {
     let attributeList = characters.map(function(a) {
       return a[value];
     });
-    console.log(attributeList);
+    let filteredAttributes = [...new Set(attributeList)];
+    $insertAttributes(filteredAttributes);
+  }
+
+  function $insertAttributes(filteredAttributes) {
+    $('.characteristic-values option:not(:disabled)').remove();
+    console.log('filteredAttributes', filteredAttributes);
+    for (let i = 0;i < filteredAttributes.length; i++) {
+      $('.characteristic-values').append(`<option>${filteredAttributes[i]}</option>`);
+    }
+
   }
 
 
-  //
-  //
-
-  // var reformattedArray = kvArray.map(function(obj) {
-  //    var rObj = {};
-  //    rObj[obj.key] = obj.value;
-  //    return rObj;
-  // });
-
   //Count Down Clock
 
-  // let timer2 = '00:05';
-  // const $youLoseImage = '<img src="./images/Judge_Q_Head.png">';
-  //
-  // const interval = setInterval(function() {
-  //   const timer = timer2.split(':');
-  //   let minutes = parseInt(timer[0], 10);
-  //   let seconds = parseInt(timer[1], 10);
-  //   --seconds;
-  //   minutes = (seconds < 0) ? --minutes : minutes;
-  //   if (minutes < 0) {
-  //     clearInterval(interval);
-  //     $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
-  //     $('.countdown-bar').html(`What a shame! YOU have lost one of you crew members to the continuum. ${$youLoseImage}`);
-  //   }
-  //   seconds = (seconds < 0) ? 59 : seconds;
-  //   seconds = (seconds < 10) ? '0' + seconds : seconds;
-  //   // minutes = (minutes < 10) ?  minutes : minutes;
-  //   $('.time').html(`${minutes} minutes : ${seconds} seconds`);
-  //   timer2 = minutes + ':' + seconds;
-  // }, 1000);
+  let timer2 = '00:05';
+  const $youLoseImage = '<img src="./images/Judge_Q_Head.png">';
+
+  const interval = setInterval(function() {
+    const timer = timer2.split(':');
+    let minutes = parseInt(timer[0], 10);
+    let seconds = parseInt(timer[1], 10);
+    --seconds;
+    minutes = (seconds < 0) ? --minutes : minutes;
+    if (minutes < 0) {
+      clearInterval(interval);
+      $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
+      $('.countdown-bar').html(`What a shame! YOU have lost one of you crew members to the continuum. ${$youLoseImage}`);
+    }
+    seconds = (seconds < 0) ? 59 : seconds;
+    seconds = (seconds < 10) ? '0' + seconds : seconds;
+    // minutes = (minutes < 10) ?  minutes : minutes;
+    $('.time').html(`${minutes} minutes : ${seconds} seconds`);
+    timer2 = minutes + ':' + seconds;
+  }, 1000);
+
+  $firstOption.on('change', (e) => {
+    const option = $(e.target).find('option:selected');
+    let value = $(option).attr('value');
+    $secondQuestion(value);
+    console.log(value);
+    $('.value').html(`${value} `)
+  });
+
+  $secondOption.on('change', (e) => {
+    const option = $(e.target).find('option:selected');
+    const secondValue = $(option).text();
+    console.log(secondValue);
+    $('.secondValue').html(`${secondValue.toLowerCase()}?`);
+  });
+
+  $submitQuestion.on('click', () => {
+    });
+
 
 });
