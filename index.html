@@ -31,7 +31,7 @@
         <img src="./images/mystery-character.jpg" alt="Mystery Character">
       </div>
       <div class= "countdown-bar">
-        <p>You have <span class= "quesionts-left">X  </span> questions, and</p>
+        <p>You have <span class= "questions-left">6</span> questions, and</p>
         <p><span class="time"></span></p>
         <p> left!</p>
       </div>
@@ -57,25 +57,24 @@
         </ul>
       </div>
       <div class="question-display-area">
+
         <p>Q, is your Person's
-          <select class="characteristics">
-            <option selected disabled>Pick a characteristic</option>
+          <select class="characteristics" required>
+            <option selected disabled>pick  characteristic</option>
             <option value="name" >Name</option>
             <option value="rank" >Rank</option>
             <option value="gender">Gender</option>
             <option value="species">Species</option>
             <option value="affiliation">Affiliation</option>
           </select>
-          <select class="characteristic-values">
-            <option selected disabled>Pick a specific attribute</option>
+          <select class="characteristic-values" required>
+            <option selected disabled>and attribute</option>
           </select>
         </p>
         <button class="question-submit" ><p>Ask Q: <span class="question">Is the crew member's <span class = "value"> </span><span class= "secondValue"></span></P></span>
         </button>
-
-
-
       </div>
+
 
     </main>
     <div class="footer-wrapper"

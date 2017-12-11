@@ -19,6 +19,11 @@ body {
   margin-left: 20px;
 }
 
+select {
+  background-color: #c5a143;
+  font-size: 14px;
+}
+
 ul {
   list-style-type: none;
 }

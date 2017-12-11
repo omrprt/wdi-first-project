@@ -37,10 +37,13 @@
 //        ADVANCE:
 //          will diplay the question asked and the answer
 
+
+
 $(() => {
-  const moves = 6;
+  let moves = 6;
+  let timer2 = '00:10';
   const $firstOption = $('.characteristics');
-  const $secondOption = $('.characteristic-values')
+  const $secondOption = $('.characteristic-values');
   const $submitQuestion = $('.question-submit');
 
 
@@ -62,7 +65,7 @@ $(() => {
 
   function $insertAttributes(filteredAttributes) {
     $('.characteristic-values option').remove();
-    $('.characteristic-values').append('<option selected disabled>Pick a specific attribute</option>');
+    $('.characteristic-values').append('<option selected disabled>and attribute</option>');
     $('.secondValue').html('');
     console.log('filteredAttributes', filteredAttributes);
     for (let i = 0;i < filteredAttributes.length; i++) {
@@ -74,7 +77,7 @@ $(() => {
 
   //Clock Countdown
 
-  let timer2 = '00:05';
+
   const $youLoseImage = '<img src="./images/Judge_Q_Head.png">';
 
   const interval = setInterval(function() {
@@ -84,9 +87,7 @@ $(() => {
     --seconds;
     minutes = (seconds < 0) ? --minutes : minutes;
     if (minutes < 0) {
-      clearInterval(interval);
-      $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
-      $('.countdown-bar').html(`What a shame! YOU have lost one of you crew members to the continuum. ${$youLoseImage}`);
+      youLose();
     }
     seconds = (seconds < 0) ? 59 : seconds;
     seconds = (seconds < 10) ? '0' + seconds : seconds;
@@ -111,14 +112,28 @@ $(() => {
   });
 
 
-
   // Move Countdown
   $submitQuestion.on('click', () => {
     const questionAsked = $('.question').text();
-    $('.question-display-area').append(`<p>${questionAsked}</p>`);
+    moves--;
+    // same as moves = moves - 1;
+    console.log(moves);
+    if (moves === 0) {
+      youLose();
+    } else {
+      $('.questions-left').html(`${moves}`);
+      $('.question-display-area').append(`<p>${questionAsked}</p>`);
+    }
   });
 
-  
+  // When you lose
+  function youLose() {
+    clearInterval(interval);
+    $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
+    $('.countdown-bar').html(`${$youLoseImage}`);
+    $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
+    $('.question-display-area').html('<p>What a shame!</p><p>YOU have lost one of you crew members to the continuum.</p>');
+  }
 
 
 });
