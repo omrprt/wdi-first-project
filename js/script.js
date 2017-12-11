@@ -61,7 +61,9 @@ $(() => {
   }
 
   function $insertAttributes(filteredAttributes) {
-    $('.characteristic-values option:not(:disabled)').remove();
+    $('.characteristic-values option').remove();
+    $('.characteristic-values').append('<option selected disabled>Pick a specific attribute</option>');
+    $('.secondValue').html('');
     console.log('filteredAttributes', filteredAttributes);
     for (let i = 0;i < filteredAttributes.length; i++) {
       $('.characteristic-values').append(`<option>${filteredAttributes[i]}</option>`);
@@ -70,7 +72,7 @@ $(() => {
   }
 
 
-  //Count Down Clock
+  //Clock Countdown
 
   let timer2 = '00:05';
   const $youLoseImage = '<img src="./images/Judge_Q_Head.png">';
@@ -108,8 +110,15 @@ $(() => {
     $('.secondValue').html(`${secondValue.toLowerCase()}?`);
   });
 
+
+
+  // Move Countdown
   $submitQuestion.on('click', () => {
-    });
+    const questionAsked = $('.question').text();
+    $('.question-display-area').append(`<p>${questionAsked}</p>`);
+  });
+
+  
 
 
 });

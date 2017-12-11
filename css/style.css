@@ -84,6 +84,13 @@ margin-left: 25px;
 font-size: 18px;
 }
 
+.question-submit {
+  background-color: #c5a143;
+  width: 450px;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
 .footer-wrapper {
   display: block;
   text-align: center;
