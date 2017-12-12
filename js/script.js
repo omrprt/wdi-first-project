@@ -38,10 +38,14 @@
 //          will diplay the question asked and the answer
 
 const characters = [
-  {name: 'Picard', rank: 'Captain', gender: 'Male', species: 'Human', affiliation: 'Federation', image: './images/picard.png'},
-  {name: 'Janeway', rank: 'Captain', gender: 'Female', species: 'Human', affiliation: 'Federation', image: './images/janeway.png'},
-  {name: 'Spock', rank: 'Captain', gender: 'Male', species: 'Vulcan', affiliation: 'Federation', image: './images/spock.png'}
+  {name: 'Picard', rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', image: './images/picard.png'},
+  {name: 'Janeway', rank: 'Captain', gender: 'female', species: 'Human', affiliation: 'Federation', image: './images/janeway.png'},
+  {name: 'Spock', rank: 'Captain', gender: 'male', species: 'Vulcan', affiliation: 'Federation', image: './images/spock.png'}
 ];
+const characterNames = characters.map(function(a) {
+  return a.name;
+});
+
 const mysteryCard = characters[Math.floor(Math.random() * 3)];
 
 $(() => {
@@ -52,7 +56,10 @@ $(() => {
   const $firstOption = $('.characteristics');
   const $secondOption = $('.characteristic-values');
   const $submitQuestion = $('.question-submit');
+  const $guess = $('.qWho');
   let secondValue = '';
+  let guessValue = '';
+
 
   function $secondQuestion(value) {
     let attributeList = characters.map(function(a) {
@@ -73,8 +80,19 @@ $(() => {
 
   }
 
-  //Clock Countdown
+  function allNames(){
+    $('.characterList').append('<option selected disabled>crew member</option>');
+    console.log('inside Allnames', characterNames);
+    for (let i = 0;i < characterNames.length; i++) {
+      $('.characterList').append(`<option>${characterNames[i]}</option>`);
+    }
+  }
 
+  allNames();
+
+
+
+  //Clock Countdown
   const $youLoseImage = '<img src="./images/Judge_Q_Head.png">';
 
   const interval = setInterval(function() {
@@ -119,7 +137,7 @@ $(() => {
       youLose();
     } else {
       $('.questions-left').html(`${moves}`);
-      $('.question-display-area').append(`<p>${questionAsked}? ${qAnswer}</p>`);
+      $('.question-display-area').append(`<p>${questionAsked}<span class = 'answer'>${qAnswer}  </span</p>`);
     }
   });
 
@@ -130,7 +148,8 @@ $(() => {
     $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
     $('.countdown-bar').html(`${$youLoseImage}`);
     $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
-    $('.question-display-area').html(`<p>What a shame!</p><p>YOU have lost ${mysteryCard.name} to the continuum.</p>`);
+    $('.question-display-area').html(`<p>What a shame!</p><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart">Restart</button>`);
+
   }
 
   // Check question
@@ -143,5 +162,27 @@ $(() => {
     } else qAnswer = 'NO';
   }
 
+  // Restart
+  $('.question-display-area').on('click', '.restart', () => {
+    console.log('restart');
+    location.reload();
+  });
+
+  // Check guess
+  function checkGuess(e) {
+    console.log('in checkguess');
+    console.log(e);
+    if(mysteryCard[name] === e) {
+      console.log('you win');
+    } else youLose();
+  }
+
+
+  $guess.on('click', () => {
+    const qOption = $('.characterList').find('option:selected');
+    guessValue = $(qOption).text();
+    console.log(guessValue);
+    checkGuess(guessValue);
+  });
 
 });
