@@ -1,11 +1,16 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Rambla', sans-serif;
+}
+
+
 body {
   background-color: black;
   color: white;
   width: 1000px;
   margin: 0 auto;
   flex-basis: 100%;
-  box-sizing: border-box;
-}
+}  
 
 .header-wrapper {
   display: flex;
@@ -33,6 +38,7 @@ select {
   background-color: #c5a143;
   font-size: 16px;
   border-radius: 20px;
+  width: 150px;
 }
 
 h2 {
@@ -44,6 +50,7 @@ button {
   border: 0;
   padding: 0;
   background-color: #0099f6;
+
 }
 
 instructions p {
@@ -61,6 +68,7 @@ instructions p {
   border-radius: 20px;
   height: 30px;
   font-weight: bold;
+  width: 150px;
 }
 
 
@@ -168,13 +176,14 @@ font-size: 16px;
 }
 
 .question-submit{
+  justify-content: center;
   background-color:  #c5a143;
   width: 450px;
-  height: 62px;
-  margin: 0 auto;
+  height: 50px;
+  margin: auto auto;
   border-radius: 20px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .restart {

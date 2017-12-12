@@ -7,6 +7,8 @@
   <!-- CDN for jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+  <link href="https://fonts.googleapis.com/css?family=Rambla" rel="stylesheet">
+
   <!-- Linking to the local webpage CSS stylsheet -->
   <link rel="stylesheet" href="./css/style.css">
 
@@ -30,7 +32,7 @@
         <img src="./images/mystery-character.jpg" alt="Mystery Character">
       </div>
       <div class="guessArea">
-        <div class="guessSubmit"><p>Is it</p> <select class="characterList"></select><p><button class = "qWho">Q WHO Submit?!</button></p></div></div>
+        <div class="guessSubmit"><p>Q WHO?</p> <select class="characterList"></select><p><button class = "qWho">Submit Guess?!</button></p></div></div>
         <div class="QImage">
       <img  src="./images/Judge_Q_Head.png" alt="picture of Q">
     </div>
@@ -46,30 +48,34 @@
       <div class="character-lineup">
         <ul>
           <li><img class="card" src="images/janeway.png" alt="Image1"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image2"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image3"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image4"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image5"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image6"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image7"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image8"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image9"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image10"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image11"></li>
-          <li><img class="card" src="images/cardback.jpg" alt="Image12"></li>
+          <li><img class="card" src="images/picard.png" alt="Image2"></li>
+          <li><img class="card" src="images/spock.png" alt="Image3"></li>
+          <li><img class="card" src="images/worf.png" alt="Image4"></li>
+          <li><img class="card" src="images/tpol.png" alt="Image5"></li>
+          <li><img class="card" src="images/sisko.png" alt="Image6"></li>
+          <li><img class="card" src="images/kirk.png" alt="Image7"></li>
+          <li><img class="card" src="images/kasidy.png" alt="Image8"></li>
+          <li><img class="card" src="images/keiko.png" alt="Image9"></li>
+          <li><img class="card" src="images/betor.png" alt="Image10"></li>
+          <li><img class="card" src="images/sarek.png" alt="Image11"></li>
+          <li><img class="card" src="images/torres.png" alt="Image12"></li>
         </ul>
       </div>
       <div class="question-display-area">
         <div class = "instructions">
           <h2>HELLO MORTAL BEING</h2>
-          <p>I am Q.  The continuum could use a new pet.  So I have decided to randomly take one of your crew member.  But being the fair entity I am, I will give you a way to save them.</p><p>You will have</p>
+          <p>I am Q.  The continuum could use a new pet.  So I have decided to randomly take one of your crew members.  But being the fair entity I am, I will give you a way to save them.</p><p>You will have</p>
             <ul>
-              <li>2 minutes and 30 Seconds,</li>
+              <li>1 minutes and 11 Seconds,</li>
               <li>6 questions,</li>
               <li>and only 1 guess</li>
             </ul>
-          <p>You will have to guess correctly to safe them.  Otherwise if you run out of time, use up your 6 questions, or guess wrong - hope they like playing fetch.</p>
-          <button class = "playGame">Q, return my crew!!!</button>
+
+          <p>You will have to guess correctly to save them.  Otherwise if you run out of time, use up your 6 questions, or guess wrong - hope they like playing fetch.</p>
+
+          <p>I have provided you with a lineup of your crew to help you.</p>
+
+          <button class = "playGame">Q, Lets Start!!!</button>
         </div>
 <div class = "gameActive">
   <p>Q, is your Person's
@@ -77,7 +83,9 @@
             <option selected disabled>pick  characteristic</option>
             <option value="name" >Name</option>
             <option value="rank" >Rank</option>
+            <option value="hairstyle" >Hair Style</option>
             <option value="gender">Gender</option>
+            <option value="skintone">Skin Tone</option>
             <option value="species">Species</option>
             <option value="affiliation">Affiliation</option>
           </select>
@@ -85,7 +93,7 @@
             <option selected disabled>and attribute</option>
           </select>
         </p>
-        <button class="question-submit" ><p>Ask Q: <span class="question">Is the crew member's <span class = "value"> </span><span class= "secondValue"></span>?</P></span>
+        <button class="question-submit" ><p>Submit Q: <span class="question">Is the crew member's <span class = "value"> </span><span class= "secondValue"></span>?</P></span>
         </button>
       </div>
     </div>

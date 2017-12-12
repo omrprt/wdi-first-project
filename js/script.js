@@ -38,19 +38,28 @@
 //          will diplay the question asked and the answer
 
 const characters = [
-  {name: 'Picard', rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', image: './images/picard.png'},
-  {name: 'Janeway', rank: 'Captain', gender: 'female', species: 'Human', affiliation: 'Federation', image: './images/janeway.png'},
-  {name: 'Spock', rank: 'Captain', gender: 'male', species: 'Vulcan', affiliation: 'Federation', image: './images/spock.png'}
-];
+  {name: 'Picard', hairstyle: 'bald' ,  rank: 'Captain', gender: 'male', skintone: 'light', species: 'Human', affiliation: 'Federation', image: './images/picard.png'},
+  {name: 'Janeway', hairstyle: 'medium' , rank: 'Captain', gender: 'female', skintone: 'light', species: 'Human', affiliation: 'Federation', image: './images/janeway.png'},
+  {name: 'Spock', hairstyle: 'short' , rank: 'Commander', gender: 'male', skintone: 'light', species: 'Vulcan', affiliation: 'Federation', image: './images/spock.png'},
+  {name: 'Worf', hairstyle: 'long' , rank: 'Commander', gender: 'male', skintone: 'dark', species: 'Klingon', affiliation: 'Federation', image: './images/worf.png'},
+  {name: 'T\'Pol', hairstyle: 'short' , rank: 'Commander', gender: 'female', skintone: 'medium', species: 'Vulcan', affiliation: 'Federation', image: './images/tpol.png'},
+  {name: 'Sisko', hairstyle: 'bald' , rank: 'Captain', gender: 'male', skintone: 'dark', species: 'Human', affiliation: 'Federation', image: './images/sisko.png'},
+  {name: 'Kirk', hairstyle: 'short' , rank: 'Captain', gender: 'male', skintone: 'medium', species: 'Human', affiliation: 'Federation', image: './images/kirk.png'},
+  {name: 'Kasidy', hairstyle: 'long' , rank: 'Civilian', gender: 'female', skintone: 'dark', species: 'Human', affiliation: 'Federation', image: './images/kasidy.png'},
+  {name: 'Keiko', hairstyle: 'pulled back' , rank: 'Civilian', gender: 'female', skintone: 'light', species: 'Human', affiliation: 'Federation', image: './images/keiko.png'},
+  {name: 'B\'Etor', hairstyle: 'long' , rank: 'Captain', gender: 'female', skintone: 'dark', species: 'Klingon', affiliation: 'Klingon Empire', image: './images/betor.png'},
+  {name: 'Sarek', hairstyle: 'short' , rank: 'Ambassador', gender: 'male', skintone: 'medium', species: 'Vulcan', affiliation: 'Federation', image: './images/sarek.png'},
+  {name: 'Torres', hairstyle: 'medium' , rank: 'Lieutanant', gender: 'female', skintone: 'medium', species: 'Vulcan', affiliation: 'Federation', image: './images/torres.png'}];
+
 const characterNames = characters.map(function(a) {
   return a.name;
 });
 
-const mysteryCard = characters[Math.floor(Math.random() * 3)];
+const mysteryCard = characters[Math.floor(Math.random() * 12)];
 
 $(() => {
   let moves = 6;
-  let timer2 = '01:10';
+  let timer2 = '01:12';
   let qAnswer = '';
   let value = '';
   let interval = null;
@@ -203,7 +212,7 @@ $(() => {
     $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
     $('.countdown-bar').html(`${$QImage}`);
     $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
-    $('.question-display-area').html(`<p>Well done!</p><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart">Restart</button>`);
+    $('.question-display-area').html(`<p>Luck is on your side!</p><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart">Restart</button>`);
   }
 
   function playGame() {
