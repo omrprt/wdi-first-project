@@ -30,10 +30,10 @@
       <div class="mystery-character">
         <img src="./images/mystery-character.jpg" alt="Mystery Character">
       </div>
-      <div class="guessArea">
+      <div class="guessArea gamePlay">
         <div class="guessSubmit"><p>Is it</p> <select class="characterList"></select><p><button class = "qWho">Q WHO Submit?!</button></p></div></div>
 
-      <div class= "countdown-bar">
+      <div class= "countdown-bar gamePlay">
         <p>You have <span class= "questions-left">6</span> questions, and</p>
         <p><span class="time"></span></p>
         <p> left!</p>
@@ -60,8 +60,19 @@
         </ul>
       </div>
       <div class="question-display-area">
-
-        <p>Q, is your Person's
+        <div class = "instructions">
+          <h2>HELLO MORTAL BEING</h2>
+          <p>I am Q.  The continuum could use a new pet.  So I have decided to randomly take one of your crew member.  But being the fair entity I am, I will give you a way to safe them.</p><p>You will have</p>
+            <ul>
+              <li>2 minutes and 30 Seconds,</li>
+              <li>6 questions,</li>
+              <li>and only 1 guess</li>
+            </ul>
+          <p>You will have to guess correctly to safe them.  Otherwise if you run out of time, use up your 6 questions, or guess wrong - hope they like playing fetch.</p>
+          <button class = "playGame">Q, return my crew!!!</button>
+        </div>
+<div class = "gameActive">
+  <p>Q, is your Person's
           <select class="characteristics" required>
             <option selected disabled>pick  characteristic</option>
             <option value="name" >Name</option>
@@ -77,6 +88,7 @@
         <button class="question-submit" ><p>Ask Q: <span class="question">Is the crew member's <span class = "value"> </span><span class= "secondValue"></span>?</P></span>
         </button>
       </div>
+    </div>
 
 
     </main>

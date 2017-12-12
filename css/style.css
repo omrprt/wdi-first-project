@@ -35,6 +35,32 @@ select {
   border-radius: 20px;
 }
 
+h2 {
+  text-align: center;
+}
+
+instructions p {
+  margin: 0 20px;
+}
+
+
+
+.playGame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: #c5a143;
+  font-size: 16px;
+  border-radius: 20px;
+  height: 30px;
+  font-weight: bold;
+}
+
+.gameActive {
+  display: none;
+
+}
 
 ul {
   list-style-type: none;
@@ -111,13 +137,14 @@ img {
 .question-display-area {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #0099f6;
   flex: 1;
   border-radius: 20px;
 }
 
 .question-display-area p{
-margin-left: 25px;
+margin: 25px 25px;
 font-size: 16px;
 }
 
