@@ -53,12 +53,21 @@ $(() => {
   let timer2 = '01:10';
   let qAnswer = '';
   let value = '';
+  let interval = null;
+  let secondValue = '';
+  let guessValue = '';
+
+  const $countDownBar = $('.countdown-bar')
+  const $playGame = $('.playGame');
   const $firstOption = $('.characteristics');
   const $secondOption = $('.characteristic-values');
   const $submitQuestion = $('.question-submit');
   const $guess = $('.qWho');
-  let secondValue = '';
-  let guessValue = '';
+  const $QImage = '<img src="./images/Judge_Q_Head.png">';
+  const $instructions = $('.instructions');
+  const $gameActive = $('.gameActive');
+
+
 
 
   function $secondQuestion(value) {
@@ -93,23 +102,25 @@ $(() => {
 
 
   //Clock Countdown
-  const $youLoseImage = '<img src="./images/Judge_Q_Head.png">';
+  function startCountDown(){
+    interval = setInterval(function() {
+      const timer = timer2.split(':');
+      let minutes = parseInt(timer[0], 10);
+      let seconds = parseInt(timer[1], 10);
+      --seconds;
+      console.log("intime");
+      minutes = (seconds < 0) ? --minutes : minutes;
+      if (minutes < 0) {
+        youLose();
+      }
+      seconds = (seconds < 0) ? 59 : seconds;
+      seconds = (seconds < 10) ? '0' + seconds : seconds;
+      // minutes = (minutes < 10) ?  minutes : minutes;
+      $('.time').html(`${minutes} minutes : ${seconds} seconds`);
+      timer2 = minutes + ':' + seconds;
+    }, 1000);
 
-  const interval = setInterval(function() {
-    const timer = timer2.split(':');
-    let minutes = parseInt(timer[0], 10);
-    let seconds = parseInt(timer[1], 10);
-    --seconds;
-    minutes = (seconds < 0) ? --minutes : minutes;
-    if (minutes < 0) {
-      youLose();
-    }
-    seconds = (seconds < 0) ? 59 : seconds;
-    seconds = (seconds < 10) ? '0' + seconds : seconds;
-    // minutes = (minutes < 10) ?  minutes : minutes;
-    $('.time').html(`${minutes} minutes : ${seconds} seconds`);
-    timer2 = minutes + ':' + seconds;
-  }, 1000);
+  }
 
   $firstOption.on('change', (e) => {
     const option = $(e.target).find('option:selected');
@@ -146,7 +157,7 @@ $(() => {
     clearInterval(interval);
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
-    $('.countdown-bar').html(`${$youLoseImage}`);
+    $('.countdown-bar').html(`${$QImage}`);
     $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
     $('.question-display-area').html(`<p>What a shame!</p><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart">Restart</button>`);
   }
@@ -189,9 +200,25 @@ $(() => {
     clearInterval(interval);
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
-    $('.countdown-bar').html(`${$youLoseImage}`);
+    $('.countdown-bar').html(`${$QImage}`);
     $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
     $('.question-display-area').html(`<p>Well done!</p><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart">Restart</button>`);
   }
+
+  function playGame() {
+    console.log('inside playgame');
+    $instructions.hide();
+    $gameActive.show();
+    $countDownBar.css({'display': 'flex'});
+    $('.guessSubmit').css({'display': 'flex'});
+    $('.QImage').hide();
+  }
+
+
+  //game start button
+  $playGame.on('click', () => {
+    startCountDown();
+    playGame();
+  });
 
 });

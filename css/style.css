@@ -44,7 +44,6 @@ instructions p {
 }
 
 
-
 .playGame {
   display: flex;
   align-items: center;
@@ -57,9 +56,10 @@ instructions p {
   font-weight: bold;
 }
 
+
+
 .gameActive {
   display: none;
-
 }
 
 ul {
@@ -86,8 +86,21 @@ img {
   flex: 1;
 }
 
-.guessSubmit{
+.QImage {
   display: flex;
+  justify-content: space-around;
+  flex: 1;
+}
+
+.QImage img {
+  display: block;
+  max-width: 250px;
+  max-height: 200px;
+  margin: auto;
+}
+
+.guessSubmit{
+  display: none;
   flex-direction: column;
   justify-content: space-around;
   background-color:  #a50221;
@@ -99,9 +112,8 @@ img {
   font-size: 16px;
 }
 
-
 .countdown-bar {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-around;
   flex:2;
