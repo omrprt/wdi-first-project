@@ -7,10 +7,10 @@
 body {
   background-color: black;
   color: white;
-  width: 1000px;
+  width: 1100px;
   margin: 0 auto;
   flex-basis: 100%;
-}  
+}
 
 .header-wrapper {
   display: flex;
@@ -57,6 +57,9 @@ instructions p {
   margin: 0 20px;
 }
 
+.buttonHover:hover {
+  background-color:  #a50221;
+}
 
 .playGame {
   display: flex;
@@ -127,11 +130,25 @@ img {
   font-size: 16px;
 }
 
+.QSubmit{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background-color:  #a50221;
+  height: 50px;
+  width: 550px;
+  margin: 0 auto;
+  border-radius: 20px 20px 0 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .countdown-bar {
   display: none;
   flex-direction: column;
   justify-content: space-around;
-  flex:2;
+  flex:1;
   font: 24px bold;
   text-align: center;
   height: 200px;
@@ -163,6 +180,7 @@ img {
 
 .question-display-area {
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   background-color: #0099f6;
@@ -171,19 +189,24 @@ img {
 }
 
 .question-display-area p{
-margin: 25px 25px;
+display: flex;
+align-items: center;
+margin: 10px 25px;
 font-size: 16px;
 }
 
 .question-submit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  background-color:  #c5a143;
-  width: 450px;
-  height: 50px;
+  background-color: #c5a143;
+  width: 100px;
+  height: 25px;
   margin: auto auto;
   border-radius: 20px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .restart {
