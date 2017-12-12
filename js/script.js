@@ -149,7 +149,6 @@ $(() => {
     $('.countdown-bar').html(`${$youLoseImage}`);
     $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
     $('.question-display-area').html(`<p>What a shame!</p><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart">Restart</button>`);
-
   }
 
   // Check question
@@ -172,11 +171,11 @@ $(() => {
   function checkGuess(e) {
     console.log('in checkguess');
     console.log(e);
-    if(mysteryCard[name] === e) {
+    if(mysteryCard.name === e) {
       console.log('you win');
+      youWin();
     } else youLose();
   }
-
 
   $guess.on('click', () => {
     const qOption = $('.characterList').find('option:selected');
@@ -184,5 +183,15 @@ $(() => {
     console.log(guessValue);
     checkGuess(guessValue);
   });
+
+  // You win
+  function youWin() {
+    clearInterval(interval);
+    $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
+    $('.countdown-bar').css({'flex-direction': 'row', 'align-items': 'center'});
+    $('.countdown-bar').html(`${$youLoseImage}`);
+    $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
+    $('.question-display-area').html(`<p>Well done!</p><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart">Restart</button>`);
+  }
 
 });
