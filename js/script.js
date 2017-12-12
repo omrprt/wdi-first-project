@@ -57,6 +57,7 @@ $(() => {
   let secondValue = '';
   let guessValue = '';
 
+  const $hideCard = $('.card');
   const $countDownBar = $('.countdown-bar')
   const $playGame = $('.playGame');
   const $firstOption = $('.characteristics');
@@ -108,7 +109,7 @@ $(() => {
       let minutes = parseInt(timer[0], 10);
       let seconds = parseInt(timer[1], 10);
       --seconds;
-      console.log("intime");
+      console.log('intime');
       minutes = (seconds < 0) ? --minutes : minutes;
       if (minutes < 0) {
         youLose();
@@ -214,6 +215,12 @@ $(() => {
     $('.QImage').hide();
   }
 
+  function hideCard(e) {
+    console.log('in hidecard');
+    $(e.target).attr('src', 'images/cardback.jpg');
+  }
+
+  $hideCard.on('click', hideCard);
 
   //game start button
   $playGame.on('click', () => {

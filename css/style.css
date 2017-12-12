@@ -39,6 +39,13 @@ h2 {
   text-align: center;
 }
 
+button {
+  border-radius: 20px;
+  border: 0;
+  padding: 0;
+  background-color: #0099f6;
+}
+
 instructions p {
   margin: 0 20px;
 }
