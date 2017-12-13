@@ -63,6 +63,7 @@ $(() => {
   let $secondValue = $('.secondValue');
   let hidden = true;
   let $faceCardRemember= new Array();
+  let i = null;
 
   const $card = $('.card');
   const $countDownBar = $('.countdown-bar');
@@ -83,8 +84,6 @@ $(() => {
   });
   const mysteryCard = characters[Math.floor(Math.random() * 12)];
 
-  console.log($characterImages);
-
   shuffle();
 
   function shuffle() {
@@ -96,19 +95,18 @@ $(() => {
       $characterImages[i] = $characterImages[random];
       $characterImages[random] = temp;
     }
-    $faceCardRemember = $characterImages;
     imageInsert($characterImages);
-    // console.log($characterImages);
   }
 
 
 
   //
   function imageInsert($characterImages) {
-    // console.log('inside Image insert',$characterImages);
+    $faceCardRemember = $characterImages;
+    console.log($faceCardRemember);
     for (let i = 0;i < $characterImages.length; i++) {
       console.log($characterImages[i]);
-      $card.append(`<li><img src="${$characterImages[i]}"></li>`);
+      $card.append(`<li><img src="${$characterImages[i]}" value="${i}"></li>`);
     }
   }
 
@@ -123,11 +121,11 @@ $(() => {
 
   function $insertAttributes(filteredAttributes) {
     $('.characteristic-values option').remove();
-    $('.characteristic-values').append('<option selected disabled>and attribute</option>');
+    $secondOption.append('<option selected disabled>and attribute</option>');
     $secondValue.html('');
     console.log('filteredAttributes', filteredAttributes);
     for (let i = 0;i < filteredAttributes.length; i++) {
-      $('.characteristic-values').append(`<option>${filteredAttributes[i]}</option>`);
+      $secondOption.append(`<option>${filteredAttributes[i]}</option>`);
     }
   }
 
@@ -216,7 +214,6 @@ $(() => {
 
   // Restart
   $('.question-display-area').on('click', '.restart', () => {
-    console.log('restart');
     location.reload();
   });
 
@@ -257,11 +254,14 @@ $(() => {
   }
 
   function hideCard(e) {
-    console.log('in hidecard part 1');
+    i = $(e.target).attr('value');
     if (hidden) {
+      hidden = false;
       $(e.target).attr('src', 'images/cardback.jpg');
-    }else console.log(hidden);
-    // $(e.target).attr('src', `${$faceCardRemember[e]}`);
+    }else {
+      hidden = true;
+      $(e.target).attr('src', `${$characterImages[i]}`);
+    }
   }
 
   $card.on('click', hideCard);
