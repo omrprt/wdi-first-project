@@ -37,19 +37,24 @@
 //        ADVANCE:
 //          will diplay the question asked and the answer
 
-const characters = [
-  {name: 'Picard', hairstyle: 'bald' ,  rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/picard.png'},
-  {name: 'Janeway', hairstyle: 'medium' , rank: 'Captain', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/janeway.png'},
-  {name: 'Spock', hairstyle: 'short' , rank: 'Commander', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/spock.png'},
-  {name: 'Worf', hairstyle: 'long' , rank: 'Commander', gender: 'male', species: 'Klingon', affiliation: 'Federation', skintone: 'darker', image: './images/worf.png'},
-  {name: 'T\'Pol', hairstyle: 'short' , rank: 'Commander', gender: 'female', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/tpol.png'},
-  {name: 'Sisko', hairstyle: 'bald' , rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/sisko.png'},
-  {name: 'Kirk', hairstyle: 'short' , rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/kirk.png'},
-  {name: 'Kasidy', hairstyle: 'pulled back' , rank: 'Civilian', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/kasidy.png'},
-  {name: 'Keiko', hairstyle: 'long' , rank: 'Civilian', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/keiko.png'},
-  {name: 'B\'Etor', hairstyle: 'long' , rank: 'Captain', gender: 'female', species: 'Klingon', affiliation: 'Klingon Empire', skintone: 'darker', image: './images/betor.png'},
-  {name: 'Sarek', hairstyle: 'short' , rank: 'Ambassador', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/sarek.png'},
-  {name: 'Torres', hairstyle: 'medium' , rank: 'Lieutanant', gender: 'female', species: 'Klingon', affiliation: 'Federation', skintone: 'darker', image: './images/torres.png'}];
+
+const charactersInPlay = [
+    {name: 'Picard', hairstyle: 'bald' ,  rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/picard.png'},
+    {name: 'Janeway', hairstyle: 'medium' , rank: 'Captain', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/janeway.png'},
+    {name: 'Spock', hairstyle: 'short' , rank: 'Commander', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/spock.png'},
+    {name: 'Worf', hairstyle: 'long' , rank: 'Commander', gender: 'male', species: 'Klingon', affiliation: 'Federation', skintone: 'darker', image: './images/worf.png'},
+    {name: 'T\'Pol', hairstyle: 'short' , rank: 'Commander', gender: 'female', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/tpol.png'},
+    {name: 'Sisko', hairstyle: 'bald' , rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/sisko.png'},
+    {name: 'Kirk', hairstyle: 'short' , rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/kirk.png'},
+    {name: 'Kasidy', hairstyle: 'pulled back' , rank: 'Civilian', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/kasidy.png'},
+    {name: 'Keiko', hairstyle: 'long' , rank: 'Civilian', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/keiko.png'},
+    {name: 'B\'Etor', hairstyle: 'long' , rank: 'Captain', gender: 'female', species: 'Klingon', affiliation: 'Klingon Empire', skintone: 'darker', image: './images/betor.png'},
+    {name: 'Sarek', hairstyle: 'short' , rank: 'Ambassador', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/sarek.png'},
+    {name: 'Torres', hairstyle: 'medium' , rank: 'Lieutanant', gender: 'female', species: 'Klingon', affiliation: 'Federation', skintone: 'darker', image: './images/torres.png'},
+    {name: 'Quark', hairstyle: 'bald' , rank: 'Civilian', gender: 'male', species: 'Ferengi', affiliation: 'Ferengi Alliance', skintone: 'darker', image: './images/quark.png'},
+    {name: 'Nog', hairstyle: 'bald' , rank: 'Cadet', gender: 'male', species: 'Ferengi', affiliation: 'Federation', skintone: 'darker', image: './images/nog.png'},
+    {name: 'Chang', hairstyle: 'bald' , rank: 'General', gender: 'male', species: 'Klingon', affiliation: 'Klingon Empire', skintone: 'darker', image: './images/chang.png'},
+    {name: 'Tuvok', hairstyle: 'short', rank: 'Lieutanant', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'darker', image: './images/tuvok.png'}];
 
 $(() => {
   let moves = 6;
@@ -64,6 +69,7 @@ $(() => {
   let hidden = true;
   let $faceCardRemember= new Array();
   let i = null;
+  let randomizedcharacters = null
 
   const $card = $('.card');
   const $countDownBar = $('.countdown-bar');
@@ -77,15 +83,43 @@ $(() => {
   const $instructions = $('.instructions');
   const $gameActive = $('.gameActive');
   const $characterList = $('.characterList');
-  const characterNames = characters.map(function(a) {
-    return a.name;
-  }).sort();
-  const $characterImages = characters.map(function(a) {
-    return a.image;
-  });
-  const mysteryCard = characters[Math.floor(Math.random() * 12)];
+  let characterNames = null;
+  let $characterImages = null;
+  let mysteryCard = null;
 
-  shuffle();
+
+  const $characterInPlay = charactersInPlay.map(function(a) {
+    return a;
+  });
+
+  let twelveCharacters = [];
+
+  arrayShuffle();
+
+  function arrayShuffle() {
+    let random = 0;
+    let temp = 0;
+    for (let i = 1; i < $characterInPlay.length; i++) {
+      random = Math.round(Math.random() * i);
+      temp = $characterInPlay[i];
+      $characterInPlay[i] = $characterInPlay[random];
+      $characterInPlay[random] = temp;
+    }
+    $characterInPlay.splice(12, (charactersInPlay.length - 12));
+    twelveCharacters = $characterInPlay;
+    characterNames = twelveCharacters.map(function(a) {
+      return a.name;
+    }).sort();
+    $characterImages = twelveCharacters.map(function(a) {
+      return a.image;
+    });
+    mysteryCard = twelveCharacters[Math.floor(Math.random() * 12)];
+
+    shuffle();
+  }
+
+
+
 
   function shuffle() {
     let random = 0;
@@ -99,9 +133,6 @@ $(() => {
     imageInsert($characterImages);
   }
 
-
-
-  //
   function imageInsert($characterImages) {
     $faceCardRemember = $characterImages;
     console.log($faceCardRemember);
@@ -112,7 +143,7 @@ $(() => {
   }
 
   function $secondQuestion(value) {
-    let attributeList = characters.map(function(a) {
+    let attributeList = twelveCharacters.map(function(a) {
       return a[value];
     });
     let filteredAttributes = [...new Set(attributeList)];
