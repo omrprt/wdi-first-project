@@ -51,219 +51,225 @@ const characters = [
   {name: 'Sarek', hairstyle: 'short' , rank: 'Ambassador', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/sarek.png'},
   {name: 'Torres', hairstyle: 'medium' , rank: 'Lieutanant', gender: 'female', species: 'Klingon', affiliation: 'Federation', skintone: 'darker', image: './images/torres.png'}];
 
-  $(() => {
-    let moves = 6;
-    let timer2 = '01:31';
-    let qAnswer = '';
-    let value = '';
-    let interval = null;
-    let secondValue = '';
-    let guessValue = '';
-    let $questionText = '';
-    let $secondValue = $('.secondValue');
+$(() => {
+  let moves = 6;
+  let timer2 = '01:31';
+  let qAnswer = '';
+  let value = '';
+  let interval = null;
+  let secondValue = '';
+  let guessValue = '';
+  let $questionText = '';
+  let $secondValue = $('.secondValue');
+  let hidden = true;
+  let $faceCardRemember= new Array();
 
-    const $hideCard = $('.card');
-    const $countDownBar = $('.countdown-bar');
-    const $playGame = $('.playGame');
-    const $firstOption = $('.characteristics');
-    const $secondOption = $('.characteristic-values');
-    const $submitQuestion = $('.question-submit');
-    const $guess = $('.qWho');
-    const $QImage = '<img src="./images/Judge_Q_Head.png">';
-    const $instructions = $('.instructions');
-    const $gameActive = $('.gameActive');
-    const characterNames = characters.map(function(a) {
-      return a.name;
-    }).sort();
-    const characterImages = characters.map(function(a) {
-      return a.image;
-    });
-    const mysteryCard = characters[Math.floor(Math.random() * 12)];
-
-    // // Randomly place the cards
-    // function shuffle(array) {
-    //   let currentIndex = array.length, temporaryValue, randomIndex;
-    //
-    //   // While there remain elements to shuffle...
-    //   while (0 !== currentIndex) {
-    //
-    //     // Pick a remaining element...
-    //     randomIndex = Math.floor(Math.random() * currentIndex);
-    //     currentIndex -= 1;
-    //
-    //     // And swap it with the current element.
-    //     temporaryValue = array[currentIndex];
-    //     array[currentIndex] = array[randomIndex];
-    //     array[randomIndex] = temporaryValue;
-    //   }
-    //   imageInsert(array);
-    //   console.log(array);
-    // }
-    //
-    // shuffle(characterImages);
-    //
-    // function imageInsert(array) {
-    //   console.log('inside Image insert');
-    //   for (let i = 0;i < array.length; i++) {
-    //     $('.card').append(`<li><img src="${array[i]}</option></li>`);
-    //   }
-    // }
-
-    function $secondQuestion(value) {
-      let attributeList = characters.map(function(a) {
-        return a[value];
-      });
-      let filteredAttributes = [...new Set(attributeList)];
-      filteredAttributes=filteredAttributes.sort();
-      $insertAttributes(filteredAttributes);
-    }
-
-    function $insertAttributes(filteredAttributes) {
-      $('.characteristic-values option').remove();
-      $('.characteristic-values').append('<option selected disabled>and attribute</option>');
-      $secondValue.html('');
-      console.log('filteredAttributes', filteredAttributes);
-      for (let i = 0;i < filteredAttributes.length; i++) {
-        $('.characteristic-values').append(`<option>${filteredAttributes[i]}</option>`);
-      }
-    }
-
-    //make a list of all drop down names
-    function allNames(){
-      $('.characterList').append('<option selected disabled>crew member</option>');
-      console.log('inside Allnames', characterNames);
-      for (let i = 0;i < characterNames.length; i++) {
-        $('.characterList').append(`<option>${characterNames[i]}</option>`);
-      }
-    }
-
-    allNames();
-
-    //Clock Countdown
-    function startCountDown(){
-      interval = setInterval(function() {
-        const timer = timer2.split(':');
-        let minutes = parseInt(timer[0], 10);
-        let seconds = parseInt(timer[1], 10);
-        --seconds;
-        console.log('intime');
-        minutes = (seconds < 0) ? --minutes : minutes;
-        if (minutes < 0) {
-          youLose();
-        }
-        seconds = (seconds < 0) ? 59 : seconds;
-        seconds = (seconds < 10) ? '0' + seconds : seconds;
-        // minutes = (minutes < 10) ?  minutes : minutes;
-        $('.time').html(`${minutes} minutes : ${seconds} seconds`);
-        timer2 = minutes + ':' + seconds;
-      }, 1000);
-
-    }
-
-    $firstOption.on('change', (e) => {
-      const option = $(e.target).find('option:selected');
-      value = $(option).attr('value');
-      $secondQuestion(value);
-      console.log(value);
-      $('.value').html(`${value} `);
-    });
-
-    $secondOption.on('change', (e) => {
-      const option = $(e.target).find('option:selected');
-      secondValue = $(option).text();
-      console.log(secondValue);
-      $secondValue.html(secondValue);
-    });
-
-    // Move Countdown
-    $submitQuestion.on('click', () => {
-      const questionAsked = $('.question').text();
-      moves--;
-      console.log(moves);
-      checkQuestion();
-      if (moves === 0) {
-        youLose();
-      } else {
-        $('.questions-left').html(`${moves}`);
-        $('.question-display-area').append(`<p>Is the crew member's ${value} ${secondValue}?  ${qAnswer}</p>`);
-      }
-    });
-
-    // When you lose
-    function youLose() {
-      clearInterval(interval);
-      $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
-      $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
-      $countDownBar.html(`${$QImage}`);
-      $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
-      $('.question-display-area p').css({'font-size': '25px', 'margin': '25px auto'});
-      $('.question-display-area').html(`<h2>What a shame!</h2><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart">Restart</button>`);
-    }
-
-    // Check question
-    function checkQuestion() {
-      console.log('in checkQuestion');
-      console.log(mysteryCard[value], secondValue);
-      console.log($questionText);
-      if (mysteryCard[value] === secondValue) {
-        qAnswer = 'YES';
-        console.log(qAnswer);
-      } else qAnswer = 'NO';
-    }
-
-    // Restart
-    $('.question-display-area').on('click', '.restart', () => {
-      console.log('restart');
-      location.reload();
-    });
-
-    // Check guess
-    function checkGuess(e) {
-      console.log('in checkguess');
-      console.log(e);
-      if(mysteryCard.name === e) {
-        console.log('you win');
-        youWin();
-      } else youLose();
-    }
-
-    $guess.on('click', () => {
-      const qOption = $('.characterList').find('option:selected');
-      guessValue = $(qOption).text();
-      console.log(guessValue);
-      checkGuess(guessValue);
-    });
-
-    // You win
-    function youWin() {
-      clearInterval(interval);
-      $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
-      $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
-    $countDownBar.html(`${$QImage}`);
-      $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
-      $('.question-display-area').html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart">Restart</button>`);
-    }
-
-    function playGame() {
-      console.log('inside playgame');
-      $instructions.hide();
-      $gameActive.show();
-      $countDownBar.css({'display': 'flex'});
-      $('.guessSubmit').css({'display': 'flex'});
-      $('.QImage').hide();
-    }
-
-    function hideCard(e) {
-      console.log('in hidecard');
-      $(e.target).attr('src', 'images/cardback.jpg');
-    }
-
-    $hideCard.on('click', hideCard);
-
-    //game start button
-    $playGame.on('click', () => {
-      startCountDown();
-      playGame();
-    });
-
+  const $card = $('.card');
+  const $countDownBar = $('.countdown-bar');
+  const $playGame = $('.playGame');
+  const $firstOption = $('.characteristics');
+  const $secondOption = $('.characteristic-values');
+  const $submitQuestion = $('.question-submit');
+  const $guess = $('.qWho');
+  const $QImage = '<img src="./images/Judge_Q_Head.png">';
+  const $instructions = $('.instructions');
+  const $gameActive = $('.gameActive');
+  const $characterList = $('.characterList');
+  const characterNames = characters.map(function(a) {
+    return a.name;
+  }).sort();
+  const $characterImages = characters.map(function(a) {
+    return a.image;
   });
+  const mysteryCard = characters[Math.floor(Math.random() * 12)];
+
+  console.log($characterImages);
+
+  shuffle();
+
+  function shuffle() {
+    let random = 0;
+    let temp = 0;
+    for (let i = 1; i < $characterImages.length; i++) {
+      random = Math.round(Math.random() * i);
+      temp = $characterImages[i];
+      $characterImages[i] = $characterImages[random];
+      $characterImages[random] = temp;
+    }
+    $faceCardRemember = $characterImages;
+    imageInsert($characterImages);
+    // console.log($characterImages);
+  }
+
+
+
+  //
+  function imageInsert($characterImages) {
+    // console.log('inside Image insert',$characterImages);
+    for (let i = 0;i < $characterImages.length; i++) {
+      console.log($characterImages[i]);
+      $card.append(`<li><img src="${$characterImages[i]}"></li>`);
+    }
+  }
+
+  function $secondQuestion(value) {
+    let attributeList = characters.map(function(a) {
+      return a[value];
+    });
+    let filteredAttributes = [...new Set(attributeList)];
+    filteredAttributes=filteredAttributes.sort();
+    $insertAttributes(filteredAttributes);
+  }
+
+  function $insertAttributes(filteredAttributes) {
+    $('.characteristic-values option').remove();
+    $('.characteristic-values').append('<option selected disabled>and attribute</option>');
+    $secondValue.html('');
+    console.log('filteredAttributes', filteredAttributes);
+    for (let i = 0;i < filteredAttributes.length; i++) {
+      $('.characteristic-values').append(`<option>${filteredAttributes[i]}</option>`);
+    }
+  }
+
+  //make a list of all drop down names
+  function allNames(){
+    $characterList.append('<option selected disabled>crew member</option>');
+    console.log('inside Allnames', characterNames);
+    for (let i = 0;i < characterNames.length; i++) {
+      $characterList.append(`<option>${characterNames[i]}</option>`);
+    }
+  }
+
+  allNames();
+
+  //Clock Countdown
+  function startCountDown(){
+    interval = setInterval(function() {
+      const timer = timer2.split(':');
+      let minutes = parseInt(timer[0], 10);
+      let seconds = parseInt(timer[1], 10);
+      --seconds;
+      console.log('intime');
+      minutes = (seconds < 0) ? --minutes : minutes;
+      if (minutes < 0) {
+        youLose();
+      }
+      seconds = (seconds < 0) ? 59 : seconds;
+      seconds = (seconds < 10) ? '0' + seconds : seconds;
+      // minutes = (minutes < 10) ?  minutes : minutes;
+      $('.time').html(`${minutes} minutes : ${seconds} seconds`);
+      timer2 = minutes + ':' + seconds;
+    }, 1000);
+
+  }
+
+  $firstOption.on('change', (e) => {
+    const option = $(e.target).find('option:selected');
+    value = $(option).attr('value');
+    $secondQuestion(value);
+    console.log(value);
+    $('.value').html(`${value} `);
+  });
+
+  $secondOption.on('change', (e) => {
+    const option = $(e.target).find('option:selected');
+    secondValue = $(option).text();
+    console.log(secondValue);
+    $secondValue.html(secondValue);
+  });
+
+  // Move Countdown
+  $submitQuestion.on('click', () => {
+    const questionAsked = $('.question').text();
+    moves--;
+    console.log(moves);
+    checkQuestion();
+    if (moves === 0) {
+      youLose();
+    } else {
+      $('.questions-left').html(`${moves}`);
+      $('.question-display-area').append(`<p>Is the crew member's ${value} ${secondValue}?  ${qAnswer}</p>`);
+    }
+  });
+
+  // When you lose
+  function youLose() {
+    clearInterval(interval);
+    $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
+    $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
+    $countDownBar.html(`${$QImage}`);
+    $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
+    $('.question-display-area p').css({'font-size': '25px', 'margin': '25px auto'});
+    $('.question-display-area').html(`<h2>What a shame!</h2><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart buttonHover">Restart</button>`);
+  }
+
+  // Check question
+  function checkQuestion() {
+    console.log('in checkQuestion');
+    console.log(mysteryCard[value], secondValue);
+    console.log($questionText);
+    if (mysteryCard[value] === secondValue) {
+      qAnswer = 'YES';
+      console.log(qAnswer);
+    } else qAnswer = 'NO';
+  }
+
+  // Restart
+  $('.question-display-area').on('click', '.restart', () => {
+    console.log('restart');
+    location.reload();
+  });
+
+  // Check guess
+  function checkGuess(e) {
+    console.log('in checkguess');
+    console.log(e);
+    if(mysteryCard.name === e) {
+      console.log('you win');
+      youWin();
+    } else youLose();
+  }
+
+  $guess.on('click', () => {
+    const qOption = $characterList.find('option:selected');
+    guessValue = $(qOption).text();
+    console.log(guessValue);
+    checkGuess(guessValue);
+  });
+
+  // You win
+  function youWin() {
+    clearInterval(interval);
+    $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
+    $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
+    $countDownBar.html(`${$QImage}`);
+    $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
+    $('.question-display-area').html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart">Restart</button>`);
+  }
+
+  function playGame() {
+    console.log('inside playgame');
+    $instructions.hide();
+    $gameActive.show();
+    $countDownBar.css({'display': 'flex'});
+    $('.guessSubmit').css({'display': 'flex'});
+    $('.QImage').hide();
+  }
+
+  function hideCard(e) {
+    console.log('in hidecard part 1');
+    if (hidden) {
+      $(e.target).attr('src', 'images/cardback.jpg');
+    }else console.log(hidden);
+    // $(e.target).attr('src', `${$faceCardRemember[e]}`);
+  }
+
+  $card.on('click', hideCard);
+
+  //game start button
+  $playGame.on('click', () => {
+    startCountDown();
+    playGame();
+  });
+
+});

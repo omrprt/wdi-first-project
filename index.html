@@ -9,7 +9,8 @@
 
   <link href="https://fonts.googleapis.com/css?family=Rambla" rel="stylesheet">
 
-<link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <!-- Linking to the local webpage CSS stylsheet -->
   <link rel="stylesheet" href="./css/style.css">
 
@@ -29,12 +30,12 @@
   <main>
 
     <div class="status-bar">
-      <div class="mystery-character">
+      <div class="mystery-character animated infinite pulse">
         <img  src="./images/mystery-character.jpg" alt="Mystery Character">
       </div>
-        <div class="QImage">
-      <img  src="./images/Judge_Q_Head.png" alt="picture of Q">
-    </div>
+      <div class="QImage">
+        <img  src="./images/Judge_Q_Head.png" alt="picture of Q">
+      </div>
       <div class= "countdown-bar">
         <p>You have <span class= "questions-left">6</span> questions, and</p>
         <p><span class="time"></span></p>
@@ -45,68 +46,62 @@
 
     <div class="main-screen">
       <div class="character-lineup">
-        <ul class = "card">
-          <li><img class="card" src="images/janeway.png" alt="Image1"></li>
-          <li><img class="card" src="images/picard.png" alt="Image2"></li>
-          <li><img class="card" src="images/spock.png" alt="Image3"></li>
-          <li><img class="card" src="images/worf.png" alt="Image4"></li>
-          <li><img class="card" src="images/tpol.png" alt="Image5"></li>
-          <li><img class="card" src="images/sisko.png" alt="Image6"></li>
-          <li><img class="card" src="images/kirk.png" alt="Image7"></li>
-          <li><img class="card" src="images/kasidy.png" alt="Image8"></li>
-          <li><img class="card" src="images/keiko.png" alt="Image9"></li>
-          <li><img class="card" src="images/betor.png" alt="Image10"></li>
-          <li><img class="card" src="images/sarek.png" alt="Image11"></li>
-          <li><img class="card" src="images/torres.png" alt="Image12"></li>
+        <ul class="card">
         </ul>
       </div>
       <div class="question-display-area">
         <div class = "instructions">
           <h2>HELLO MORTAL BEING</h2>
-          <p>I am Q.  The continuum could use a new pet.  So I have decided to randomly take one of your crew members.  But being the fair entity I am, I will give you a way to save them.</p><p>You will have</p>
+          <p>I am Q.  The continuum could use a new pet.  So I have decided to randomly take one of your crew members.  But being the fair entity I am, I will give you a way to save them.</p><p>You will have:</p>
+          <ul>
+            <li>1 minutes and 30 Seconds,</li>
+            <li>6 questions,</li>
+            <li>and only 1 guess</li>
+          </ul>
+
+          <p>You will have to use your 1 guess correctly to save them.
+            Otherwise:</p>
             <ul>
-              <li>1 minutes and 30 Seconds,</li>
-              <li>6 questions,</li>
-              <li>and only 1 guess</li>
-            </ul>
+              <li>if you run out of time,</li>
+                <li>use up your 6 questions,</li>
+                <li> or guess wrong </li>
 
-          <p>You will have to guess correctly to save them.  Otherwise if you run out of time, use up your 6 questions, or guess wrong - hope they like playing fetch.</p>
-          <P>You have two drop downs to construct your question.</p>
-          <p>Submit your guess in the red square</p>
-          <p>I have provided you with a clicklable lineup of your crew to help you.</p>
+          <p>YOU LOSE  - hope they like playing fetch.</p>
+          <p>You have two dropdown menus to construct your question.</p>
+          <p>Submit your only and final guess in the red square</p>
+          <p>I have provided you with a lineup of your crew, which you can individually hide, to guide you.</p>
+
+            <button class = "playGame buttonHover">Q, Lets Start!!!</button>
+          </div>
+          <div class = "gameActive">
+            <div class="guessArea">
+              <div class="QSubmit"><p>Q WHO?</p> <select class="characterList"></select><p><button class = "qWho buttonHover">Submit Final Guess?!</button></p></div></div>
+
+                <p>  Q, is the crew member's
+                  <select class="characteristics" required>
+                    <option selected disabled>characteristic</option>
+                    <option value="affiliation">Affiliation</option>
+                    <option value="gender">Gender</option>
+                    <option value="hairstyle" >Hair Style</option>
+                    <option value="rank" >Rank</option>
+                    <option value="skintone">Skin Tone</option>
+                    <option value="species">Species</option>
+                  </select>
+                  <select class="characteristic-values" required>
+                    <option selected disabled>and attribute</option>
+                  </select>
+                  <button class="question-submit buttonHover" >Submit Q
+                  </button>
+                </p>
+              </div>
+            </div>
 
 
-          <button class = "playGame buttonHover">Q, Lets Start!!!</button>
+          </main>
+          <div class="footer-wrapper"
+          <footer>
+            <p>coded by Omar Portillo, inspired by Guess Who and Star Trek.</p>
+          </footer>
         </div>
-<div class = "gameActive">
-  <div class="guessArea">
-    <div class="QSubmit"><p>Q WHO?</p> <select class="characterList"></select><p><button class = "qWho buttonHover">Submit Final Guess?!</button></p></div></div>
-  <p>  Q, is the crew member's
-          <select class="characteristics" required>
-            <option selected disabled>characteristic</option>
-            <option value="affiliation">Affiliation</option>
-            <option value="gender">Gender</option>
-            <option value="hairstyle" >Hair Style</option>
-            <option value="rank" >Rank</option>
-            <option value="skintone">Skin Tone</option>
-            <option value="species">Species</option>
-          </select>
-          <select class="characteristic-values" required>
-            <option selected disabled>and attribute</option>
-          </select>
-          <button class="question-submit buttonHover" >Submit Q
-          </button>
-        </p>
-
-      </div>
-    </div>
-
-
-    </main>
-    <div class="footer-wrapper"
-    <footer>
-      <p>coded by Omar Portillo, inspired by Guess Who and Star Trek.</p>
-    </footer>
-  </div>
-</body>
-</html>
+      </body>
+      </html>
