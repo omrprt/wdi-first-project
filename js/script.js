@@ -68,6 +68,7 @@ $(() => {
   const $card = $('.card');
   const $countDownBar = $('.countdown-bar');
   const $playGame = $('.playGame');
+  const $questionDisplayArea = $('.question-display-area');
   const $firstOption = $('.characteristics');
   const $secondOption = $('.characteristic-values');
   const $submitQuestion = $('.question-submit');
@@ -178,28 +179,20 @@ $(() => {
 
   // Move Countdown
   $submitQuestion.on('click', () => {
-    const questionAsked = $('.question').text();
-    moves--;
-    console.log(moves);
-    checkQuestion();
-    if (moves === 0) {
-      youLose();
-    } else {
-      $('.questions-left').html(`${moves}`);
-      $('.question-display-area').append(`<p>Is the crew member's ${value} ${secondValue}?  ${qAnswer}</p>`);
+    if (value && secondValue) {
+      const questionAsked = $('.question').text();
+      moves--;
+      console.log(moves);
+      checkQuestion();
+      if (moves === 0) {
+        youLose();
+      } else {
+        $('.questions-left').html(`${moves}`);
+        $questionDisplayArea.append(`<p>Is the crew member's ${value} ${secondValue}?  ${qAnswer}</p>`);
+      }
     }
   });
 
-  // When you lose
-  function youLose() {
-    clearInterval(interval);
-    $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
-    $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
-    $countDownBar.html(`${$QImage}`);
-    $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
-    $('.question-display-area p').css({'font-size': '25px', 'margin': '25px auto'});
-    $('.question-display-area').html(`<h2>What a shame!</h2><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart buttonHover">Restart</button>`);
-  }
 
   // Check question
   function checkQuestion() {
@@ -212,17 +205,11 @@ $(() => {
     } else qAnswer = 'NO';
   }
 
-  // Restart
-  $('.question-display-area').on('click', '.restart', () => {
-    location.reload();
-  });
 
   // Check guess
   function checkGuess(e) {
     console.log('in checkguess');
-    console.log(e);
     if(mysteryCard.name === e) {
-      console.log('you win');
       youWin();
     } else youLose();
   }
@@ -230,9 +217,20 @@ $(() => {
   $guess.on('click', () => {
     const qOption = $characterList.find('option:selected');
     guessValue = $(qOption).text();
-    console.log(guessValue);
     checkGuess(guessValue);
+
   });
+
+  // When you lose
+  function youLose() {
+    clearInterval(interval);
+    $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
+    $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
+    $countDownBar.html(`${$QImage}`);
+    $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center'});
+    $('.question-display-area p').css({'font-size': '25px', 'margin': '25px auto'});
+    $questionDisplayArea.html(`<h2>What a shame!</h2><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart buttonHover">Restart</button>`);
+  }
 
   // You win
   function youWin() {
@@ -240,8 +238,8 @@ $(() => {
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
     $countDownBar.html(`${$QImage}`);
-    $('.question-display-area').css({'flex-direction': 'column', 'align-items': 'center'});
-    $('.question-display-area').html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart">Restart</button>`);
+    $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center'});
+    $questionDisplayArea.html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart">Restart</button>`);
   }
 
   function playGame() {
@@ -272,4 +270,8 @@ $(() => {
     playGame();
   });
 
+  // Restart
+  $questionDisplayArea.on('click', '.restart', () => {
+    location.reload();
+  });
 });
