@@ -59,6 +59,8 @@ instructions p {
 
 .buttonHover:hover {
   background-color:  #a50221;
+  color: #c5a143;
+  font-weight: bold;
 }
 
 .playGame {
@@ -112,8 +114,8 @@ img {
 
 .QImage img {
   display: block;
-  max-width: 250px;
-  max-height: 200px;
+  max-width: 175px;
+  max-height: 175px;
   margin: auto;
 }
 
