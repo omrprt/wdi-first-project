@@ -67,8 +67,9 @@ $(() => {
   let interval = null;
   let secondValue = '';
   let guessValue = null;
-
-  let hidden = false;
+  let characterNames = null;
+  let $characterImages = null;
+  let mysteryCard = null;
   let i = null;
 
 
@@ -85,9 +86,8 @@ $(() => {
   const $instructions = $('.instructions');
   const $gameActive = $('.gameActive');
   const $characterList = $('.characterList');
-  let characterNames = null;
-  let $characterImages = null;
-  let mysteryCard = null;
+  // const $audio = new Audio('../audio/oneturnleft.mp3');
+
 
 
   const $characterInPlay = charactersInPlay.map(function(a) {
@@ -211,6 +211,9 @@ $(() => {
       } else {
         $('.questions-left').html(`${moves}`);
         $questionDisplayArea.append(`<p>Is the crew member's ${value} ${secondValue}?  ${qAnswer}</p>`);
+        // if (moves === 1){
+        //   $audio.play();
+        // }
       }
       $firstOption[0].selectedIndex = 0;
       $secondOption[0].selectedIndex = 0;

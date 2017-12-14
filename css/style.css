@@ -5,23 +5,60 @@
 
 
 body {
-  background-color: black;
   color: white;
-  width: 1100px;
+  max-width: 1100px;
   margin: 0 auto;
   flex-basis: 100%;
+  background-image: url("../images/spacebackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.header-wrapper {
+/*.header-wrapper {
   display: flex;
   justify-content: center;
-}
+}*/
 
 .status-bar {
   display: flex;
   align-items: center;
+  margin-top: 25px;
   margin-left: 20px;
 }
+
+.mystery-character {
+  flex: 1;
+}
+
+.mystery-character img {
+  display: block;
+  max-width: 250px;
+  max-height: 200px;
+  margin: auto;
+}
+
+.sitename {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+
+}
+.QImage {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+}
+
+.QImage img {
+  display: block;
+  max-width: 175px;
+  max-height: 175px;
+  margin: auto;
+}
+
+
 
 select {
   background-color: #c5a143;
@@ -81,6 +118,7 @@ instructions p {
 
 .gameActive {
   display: none;
+  width:100%;
 }
 
 ul {
@@ -91,34 +129,11 @@ img {
     border-radius: 20px;
 }
 
-.mystery-character {
-  flex: 1;
-}
 
-.mystery-character img {
-  display: block;
-  max-width: 250px;
-  max-height: 200px;
-  margin: auto;
-}
 .guessArea {
   align-items: center;
   text-align: center;
   flex: 1;
-}
-
-
-.QImage {
-  display: flex;
-  justify-content: space-around;
-  flex: 1;
-}
-
-.QImage img {
-  display: block;
-  max-width: 175px;
-  max-height: 175px;
-  margin: auto;
 }
 
 .guessSubmit{
@@ -141,7 +156,6 @@ img {
   justify-content: center;
   background-color:  #a50221;
   height: 50px;
-  width: 550px;
   margin: 0 auto;
   border-radius: 20px 20px 0 0;
   font-weight: bold;
@@ -164,6 +178,11 @@ img {
 
 .main-screen {
   display: flex;
+  flex-wrap: wrap;
+}
+.character-lineup {
+    flex: 1;
+    min-width: 500px;
 }
 
 .character-lineup img {
@@ -171,9 +190,7 @@ img {
   max-width: 110px;
 }
 
-.character-lineup {
-    flex: 1;
-}
+
 
 .character-lineup ul{
   display: flex;
@@ -190,13 +207,14 @@ img {
   background-color: #0099f6;
   flex: 1;
   border-radius: 20px;
+  min-width: 500px;
 }
 
 .question-display-area p{
 display: flex;
 align-items: center;
 margin: 10px 20px;
-font-size: 16px;
+font-size: 18px;
 }
 
 .question-submit{
@@ -232,3 +250,5 @@ font-size: 16px;
   display: block;
   text-align: center;
 }
+
+@media screen and (max-width: )
