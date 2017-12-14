@@ -54,6 +54,9 @@ const charactersInPlay = [
     {name: 'Quark', hairstyle: 'bald' , rank: 'Civilian', gender: 'male', species: 'Ferengi', affiliation: 'Ferengi Alliance', skintone: 'darker', image: './images/quark.png'},
     {name: 'Nog', hairstyle: 'bald' , rank: 'Cadet', gender: 'male', species: 'Ferengi', affiliation: 'Federation', skintone: 'darker', image: './images/nog.png'},
     {name: 'Chang', hairstyle: 'bald' , rank: 'General', gender: 'male', species: 'Klingon', affiliation: 'Klingon Empire', skintone: 'darker', image: './images/chang.png'},
+    {name: 'Dukat', hairstyle: 'short' , rank: 'Gul', gender: 'male', species: 'Cardassian', affiliation: 'Cardassian Union', skintone: 'purple', image: './images/dukat.png'},
+    {name: 'Garak', hairstyle: 'short' , rank: 'Civilian', gender: 'male', species: 'Cardassian', affiliation: 'Cardassian Union', skintone: 'purple', image: './images/garak.png'},
+    {name: 'Burnham', hairstyle: 'short' , rank: 'Commander', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/burnham.png'},
     {name: 'Tuvok', hairstyle: 'short', rank: 'Lieutanant', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'darker', image: './images/tuvok.png'}];
 
 $(() => {
@@ -118,9 +121,6 @@ $(() => {
     shuffle();
   }
 
-
-
-
   function shuffle() {
     let random = 0;
     let temp = 0;
@@ -135,9 +135,7 @@ $(() => {
 
   function imageInsert($characterImages) {
     $faceCardRemember = $characterImages;
-    console.log($faceCardRemember);
     for (let i = 0;i < $characterImages.length; i++) {
-      console.log($characterImages[i]);
       $card.append(`<li><img src="${$characterImages[i]}" value="${i}"></li>`);
     }
   }
@@ -155,7 +153,6 @@ $(() => {
     $('.characteristic-values option').remove();
     $secondOption.append('<option selected disabled>and attribute</option>');
     $secondValue.html('');
-    console.log('filteredAttributes', filteredAttributes);
     for (let i = 0;i < filteredAttributes.length; i++) {
       $secondOption.append(`<option>${filteredAttributes[i]}</option>`);
     }
@@ -164,7 +161,7 @@ $(() => {
   //make a list of all drop down names
   function allNames(){
     $characterList.append('<option selected disabled>crew member</option>');
-    console.log('inside Allnames', characterNames);
+
     for (let i = 0;i < characterNames.length; i++) {
       $characterList.append(`<option>${characterNames[i]}</option>`);
     }
@@ -179,7 +176,6 @@ $(() => {
       let minutes = parseInt(timer[0], 10);
       let seconds = parseInt(timer[1], 10);
       --seconds;
-      console.log('intime');
       minutes = (seconds < 0) ? --minutes : minutes;
       if (minutes < 0) {
         youLose();
@@ -197,14 +193,12 @@ $(() => {
     const option = $(e.target).find('option:selected');
     value = $(option).attr('value');
     $secondQuestion(value);
-    console.log(value);
     $('.value').html(`${value} `);
   });
 
   $secondOption.on('change', (e) => {
     const option = $(e.target).find('option:selected');
     secondValue = $(option).text();
-    console.log(secondValue);
     $secondValue.html(secondValue);
   });
 
@@ -213,7 +207,6 @@ $(() => {
     if (value && secondValue) {
       const questionAsked = $('.question').text();
       moves--;
-      console.log(moves);
       checkQuestion();
       if (moves === 0) {
         youLose();
@@ -227,19 +220,14 @@ $(() => {
 
   // Check question
   function checkQuestion() {
-    console.log('in checkQuestion');
-    console.log(mysteryCard[value], secondValue);
-    console.log($questionText);
     if (mysteryCard[value] === secondValue) {
       qAnswer = 'YES';
-      console.log(qAnswer);
     } else qAnswer = 'NO';
   }
 
 
   // Check guess
   function checkGuess(e) {
-    console.log('in checkguess');
     if(mysteryCard.name === e) {
       youWin();
     } else youLose();
@@ -270,11 +258,10 @@ $(() => {
     $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
     $countDownBar.html(`${$QImage}`);
     $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center'});
-    $questionDisplayArea.html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart">Restart</button>`);
+    $questionDisplayArea.html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart buttonHover">Restart</button>`);
   }
 
   function playGame() {
-    console.log('inside playgame');
     $instructions.hide();
     $gameActive.show();
     $countDownBar.css({'display': 'flex'});
