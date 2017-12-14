@@ -279,10 +279,10 @@ $(() => {
 
   function hideCard(e) {
     i = $(e.target).attr('value');
-    if ($(e.target).attr('src') === 'images/cardback.jpg')  {
+    if ($(e.target).attr('src') === 'images/cardback.png')  {
       $(e.target).attr('src', `${$characterImages[i]}`);
     }else {
-      $(e.target).attr('src', 'images/cardback.jpg');
+      $(e.target).attr('src', 'images/cardback.png');
     }
   }
 
