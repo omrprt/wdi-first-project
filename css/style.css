@@ -14,10 +14,32 @@ body {
   background-repeat: no-repeat;
 }
 
-/*.header-wrapper {
-  display: flex;
-  justify-content: center;
-}*/
+select {
+  background-color: #c5a143;
+  font-size: 16px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+button {
+  border-radius: 20px;
+  border: 0;
+  padding: 0;
+  background-color: #0099f6;
+  height 25px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+    border-radius: 20px;
+}
 
 .status-bar {
   display: flex;
@@ -59,13 +81,6 @@ body {
 }
 
 
-
-select {
-  background-color: #c5a143;
-  font-size: 16px;
-  text-align: center;
-}
-
 .characterList {
   display: flex;
   margin: 0 auto;
@@ -79,19 +94,7 @@ select {
   width: 150px;
 }
 
-h2 {
-  text-align: center;
-}
-
-button {
-  border-radius: 20px;
-  border: 0;
-  padding: 0;
-  background-color: #0099f6;
-
-}
-
-instructions p {
+.instructions p {
   margin: 0 20px;
 }
 
@@ -114,20 +117,12 @@ instructions p {
   width: 150px;
 }
 
-
-
 .gameActive {
   display: none;
   width:100%;
 }
 
-ul {
-  list-style-type: none;
-}
 
-img {
-    border-radius: 20px;
-}
 
 
 .guessArea {
@@ -147,6 +142,10 @@ img {
   border-radius: 20px;
   font-weight: bold;
   font-size: 16px;
+}
+
+.attribute {
+  display: flex;
 }
 
 .QSubmit{
@@ -169,7 +168,10 @@ img {
   flex:1;
   font: 24px bold;
   text-align: center;
-  height: 200px;
+}
+
+.countdown-bar p {
+  margin: 5px auto;
 }
 
 .countdown-bar img {
@@ -179,24 +181,22 @@ img {
 .main-screen {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .character-lineup {
     flex: 1;
-    min-width: 500px;
-}
-
-.character-lineup img {
-  max-height: 175px;
-  max-width: 110px;
-}
-
-
+    max-width: 550px;
+    margin: 0 auto;
+  }
 
 .character-lineup ul{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding:0 20px;
+  justify-content: space-around;
+}
+.character-lineup img {
+  max-height: 175px;
+  max-width: 110px;
 }
 
 .question-display-area {
@@ -212,14 +212,13 @@ img {
 
 .question-display-area p{
 display: flex;
+justify-content: center;
 align-items: center;
-margin: 10px 20px;
+margin: 10px;
 font-size: 18px;
 }
 
 .question-submit{
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #c5a143;
@@ -251,4 +250,36 @@ font-size: 18px;
   text-align: center;
 }
 
-@media screen and (max-width: )
+@media screen and (max-width: 979px) {
+
+
+  .status-bar {
+    max-width: 550px;
+    margin: 25px auto 0;
+  }
+
+  .mystery-character img {
+    max-height: 125px;
+}
+
+.QImage img {
+  max-height: 125px;
+}
+
+.character-lineup ul {
+    padding: 0;
+  }
+  .character-lineup img {
+    max-height: 125px;
+    max-width: 110px;
+  }
+  .main-screen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+}

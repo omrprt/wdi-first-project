@@ -254,7 +254,7 @@ $(() => {
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
     $countDownBar.html(`${$QImage}`);
-    $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center'});
+    $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center', 'justify-content': 'center'});
     $('.question-display-area p').css({'font-size': '25px', 'margin': '25px auto'});
     $questionDisplayArea.html(`<h2>What a shame!</h2><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart buttonHover">Restart</button>`);
   }
@@ -265,7 +265,7 @@ $(() => {
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
     $countDownBar.html(`${$QImage}`);
-    $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center'});
+    $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center', 'justify-content': 'center'});
     $questionDisplayArea.html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart buttonHover">Restart</button>`);
   }
 
