@@ -10,7 +10,8 @@
   <link href="https://fonts.googleapis.com/css?family=Rambla" rel="stylesheet">
 
   <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
   <!-- Linking to the local webpage CSS stylsheet -->
   <link rel="stylesheet" href="./css/style.css">
 
@@ -50,10 +51,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         </ul>
       </div>
       <div class="question-display-area">
-        <div class = "instructions">
+        <div class="end-lose"></div>
+        <div class="instructions">
           <h2>HELLO MORTAL BEING</h2>
           <p>I am Q.  The continuum could use a new pet.  So I have decided to randomly take one of your crew members.  But being the fair entity I am, I will give you a way to save them.</p><p>You will have:</p>
           <ul>
+            <li>a clickable lineup of your crew, to individually hide and show, to guide you.</li>
             <li>1 minutes and 30 Seconds,</li>
             <li>6 questions,</li>
             <li>and only 1 guess</li>
@@ -63,46 +66,44 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
             Otherwise:</p>
             <ul>
               <li>if you run out of time,</li>
-                <li>use up your 6 questions,</li>
-                <li> or guess wrong </li>
+              <li>use up your 6 questions,</li>
+              <li> or guess wrong </li>
             </ul>
 
-          <p>YOU LOSE  - hope they like playing fetch.</p>
-          <p>You have two dropdown menus to construct your question.</p>
-          <p>Submit your only and final guess in the red square</p>
-          <p>I have provided you with a lineup of your crew, which you can individually hide, to guide you.</p>
-
+            <p>YOU LOSE  - hope they like playing fetch.</p>
+            <p>You have two dropdown menus to construct your question.</p>
+            <p>Submit your only and final guess in the red square</p>
             <button class = "playGame buttonHover">Q, Lets Start!!!</button>
           </div>
           <div class = "gameActive">
-            <div class="guessArea">
+            <div class="guessArea" required>
               <div class="QSubmit"><p>Q WHO?</p> <select class="characterList"></select><p><button class = "qWho buttonHover">Submit Final Guess?!</button></p></div></div>
 
-                <p>  Q, is the crew member's
-                  <select class="characteristics" required>
-                    <option selected disabled>characteristic</option>
-                    <option value="affiliation">Affiliation</option>
-                    <option value="gender">Gender</option>
-                    <option value="hairstyle" >Hair Style</option>
-                    <option value="rank" >Rank</option>
-                    <option value="skintone">Skin Tone</option>
-                    <option value="species">Species</option>
-                  </select>
-                  <select class="characteristic-values" required>
-                    <option selected disabled>and attribute</option>
-                  </select>
-                  <button class="question-submit buttonHover" >Submit Q
-                  </button>
-                </p>
-              </div>
+              <p>  Q, is the crew member's
+                <select class="characteristics">
+                  <option selected="selected" disabled value = "0" >characteristic</option>
+                  <option value="affiliation">Affiliation</option>
+                  <option value="gender">Gender</option>
+                  <option value="hairstyle" >Hair Style</option>
+                  <option value="rank" >Rank</option>
+                  <option value="skintone">Skin Tone</option>
+                  <option value="species">Species</option>
+                </select>
+                <select class="characteristic-values" required>
+                  <option selected="selected" disabled value = "0">and attribute</option>
+                </select>
+                <button class="question-submit buttonHover" >Submit Q
+                </button>
+              </p>
             </div>
+          </div>
 
 
-          </main>
-          <div class="footer-wrapper"
-          <footer>
-            <p>coded by Omar Portillo, inspired by Guess Who and Star Trek.</p>
-          </footer>
-        </div>
-      </body>
-      </html>
+        </main>
+        <div class="footer-wrapper"
+        <footer>
+          <p>coded by Omar Portillo, inspired by Guess Who and Star Trek.</p>
+        </footer>
+      </div>
+    </body>
+    </html>

@@ -26,6 +26,7 @@ body {
 select {
   background-color: #c5a143;
   font-size: 16px;
+  text-align: center;
 }
 
 .characterList {
@@ -194,7 +195,7 @@ img {
 .question-display-area p{
 display: flex;
 align-items: center;
-margin: 10px 25px;
+margin: 10px 20px;
 font-size: 16px;
 }
 

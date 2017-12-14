@@ -39,25 +39,25 @@
 
 
 const charactersInPlay = [
-    {name: 'Picard', hairstyle: 'bald' ,  rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/picard.png'},
-    {name: 'Janeway', hairstyle: 'medium' , rank: 'Captain', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/janeway.png'},
-    {name: 'Spock', hairstyle: 'short' , rank: 'Commander', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/spock.png'},
-    {name: 'Worf', hairstyle: 'long' , rank: 'Commander', gender: 'male', species: 'Klingon', affiliation: 'Federation', skintone: 'darker', image: './images/worf.png'},
-    {name: 'T\'Pol', hairstyle: 'short' , rank: 'Commander', gender: 'female', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/tpol.png'},
-    {name: 'Sisko', hairstyle: 'bald' , rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/sisko.png'},
-    {name: 'Kirk', hairstyle: 'short' , rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/kirk.png'},
-    {name: 'Kasidy', hairstyle: 'pulled back' , rank: 'Civilian', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/kasidy.png'},
-    {name: 'Keiko', hairstyle: 'long' , rank: 'Civilian', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/keiko.png'},
-    {name: 'B\'Etor', hairstyle: 'long' , rank: 'Captain', gender: 'female', species: 'Klingon', affiliation: 'Klingon Empire', skintone: 'darker', image: './images/betor.png'},
-    {name: 'Sarek', hairstyle: 'short' , rank: 'Ambassador', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/sarek.png'},
-    {name: 'Torres', hairstyle: 'medium' , rank: 'Lieutanant', gender: 'female', species: 'Klingon', affiliation: 'Federation', skintone: 'darker', image: './images/torres.png'},
-    {name: 'Quark', hairstyle: 'bald' , rank: 'Civilian', gender: 'male', species: 'Ferengi', affiliation: 'Ferengi Alliance', skintone: 'darker', image: './images/quark.png'},
-    {name: 'Nog', hairstyle: 'bald' , rank: 'Cadet', gender: 'male', species: 'Ferengi', affiliation: 'Federation', skintone: 'darker', image: './images/nog.png'},
-    {name: 'Chang', hairstyle: 'bald' , rank: 'General', gender: 'male', species: 'Klingon', affiliation: 'Klingon Empire', skintone: 'darker', image: './images/chang.png'},
-    {name: 'Dukat', hairstyle: 'short' , rank: 'Gul', gender: 'male', species: 'Cardassian', affiliation: 'Cardassian Union', skintone: 'purple', image: './images/dukat.png'},
-    {name: 'Garak', hairstyle: 'short' , rank: 'Civilian', gender: 'male', species: 'Cardassian', affiliation: 'Cardassian Union', skintone: 'purple', image: './images/garak.png'},
-    {name: 'Burnham', hairstyle: 'short' , rank: 'Commander', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/burnham.png'},
-    {name: 'Tuvok', hairstyle: 'short', rank: 'Lieutanant', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'darker', image: './images/tuvok.png'}];
+  {name: 'Picard', hairstyle: 'bald' ,  rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/picard.png'},
+  {name: 'Janeway', hairstyle: 'medium' , rank: 'Captain', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/janeway.png'},
+  {name: 'Spock', hairstyle: 'short' , rank: 'Commander', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/spock.png'},
+  {name: 'Worf', hairstyle: 'long' , rank: 'Commander', gender: 'male', species: 'Klingon', affiliation: 'Federation', skintone: 'darker', image: './images/worf.png'},
+  {name: 'T\'Pol', hairstyle: 'short' , rank: 'Commander', gender: 'female', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/tpol.png'},
+  {name: 'Sisko', hairstyle: 'bald' , rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/sisko.png'},
+  {name: 'Kirk', hairstyle: 'short' , rank: 'Captain', gender: 'male', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/kirk.png'},
+  {name: 'Kasidy', hairstyle: 'pulled back' , rank: 'Civilian', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/kasidy.png'},
+  {name: 'Keiko', hairstyle: 'long' , rank: 'Civilian', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'lighter', image: './images/keiko.png'},
+  {name: 'B\'Etor', hairstyle: 'long' , rank: 'Captain', gender: 'female', species: 'Klingon', affiliation: 'Klingon Empire', skintone: 'darker', image: './images/betor.png'},
+  {name: 'Sarek', hairstyle: 'short' , rank: 'Ambassador', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'lighter', image: './images/sarek.png'},
+  {name: 'Torres', hairstyle: 'medium' , rank: 'Lieutanant', gender: 'female', species: 'Klingon', affiliation: 'Federation', skintone: 'darker', image: './images/torres.png'},
+  {name: 'Quark', hairstyle: 'bald' , rank: 'Civilian', gender: 'male', species: 'Ferengi', affiliation: 'Ferengi Alliance', skintone: 'darker', image: './images/quark.png'},
+  {name: 'Nog', hairstyle: 'bald' , rank: 'Cadet', gender: 'male', species: 'Ferengi', affiliation: 'Federation', skintone: 'darker', image: './images/nog.png'},
+  {name: 'Chang', hairstyle: 'bald' , rank: 'General', gender: 'male', species: 'Klingon', affiliation: 'Klingon Empire', skintone: 'darker', image: './images/chang.png'},
+  {name: 'Dukat', hairstyle: 'short' , rank: 'Gul', gender: 'male', species: 'Cardassian', affiliation: 'Cardassian Union', skintone: 'purple', image: './images/dukat.png'},
+  {name: 'Garak', hairstyle: 'short' , rank: 'Civilian', gender: 'male', species: 'Cardassian', affiliation: 'Cardassian Union', skintone: 'purple', image: './images/garak.png'},
+  {name: 'Burnham', hairstyle: 'short' , rank: 'Commander', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/burnham.png'},
+  {name: 'Tuvok', hairstyle: 'short', rank: 'Lieutanant', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'darker', image: './images/tuvok.png'}];
 
 $(() => {
   let moves = 6;
@@ -66,13 +66,11 @@ $(() => {
   let value = '';
   let interval = null;
   let secondValue = '';
-  let guessValue = '';
-  let $questionText = '';
-  let $secondValue = $('.secondValue');
-  let hidden = true;
-  let $faceCardRemember= new Array();
+  let guessValue = null;
+
+  let hidden = false;
   let i = null;
-  let randomizedcharacters = null
+
 
   const $card = $('.card');
   const $countDownBar = $('.countdown-bar');
@@ -80,6 +78,7 @@ $(() => {
   const $questionDisplayArea = $('.question-display-area');
   const $firstOption = $('.characteristics');
   const $secondOption = $('.characteristic-values');
+  const $secondValue = $('.secondValue');
   const $submitQuestion = $('.question-submit');
   const $guess = $('.qWho');
   const $QImage = '<img src="./images/Judge_Q_Head.png">';
@@ -134,7 +133,6 @@ $(() => {
   }
 
   function imageInsert($characterImages) {
-    $faceCardRemember = $characterImages;
     for (let i = 0;i < $characterImages.length; i++) {
       $card.append(`<li><img src="${$characterImages[i]}" value="${i}"></li>`);
     }
@@ -205,7 +203,7 @@ $(() => {
   // Move Countdown
   $submitQuestion.on('click', () => {
     if (value && secondValue) {
-      const questionAsked = $('.question').text();
+      // const questionAsked = $('.question').text();
       moves--;
       checkQuestion();
       if (moves === 0) {
@@ -214,6 +212,10 @@ $(() => {
         $('.questions-left').html(`${moves}`);
         $questionDisplayArea.append(`<p>Is the crew member's ${value} ${secondValue}?  ${qAnswer}</p>`);
       }
+      $firstOption[0].selectedIndex = 0;
+      $secondOption[0].selectedIndex = 0;
+      value = '';
+      secondValue = '';
     }
   });
 
@@ -233,11 +235,16 @@ $(() => {
     } else youLose();
   }
 
-  $guess.on('click', () => {
-    const qOption = $characterList.find('option:selected');
+  $characterList.on('change', (e) => {
+    const qOption = $(e.target).find('option:selected');
     guessValue = $(qOption).text();
-    checkGuess(guessValue);
+    $secondValue.html(secondValue);
+  });
 
+  $guess.on('click', () => {
+    if (guessValue)
+      // const qOption = $characterList.find('option:selected');
+      checkGuess(guessValue);
   });
 
   // When you lose
@@ -271,12 +278,10 @@ $(() => {
 
   function hideCard(e) {
     i = $(e.target).attr('value');
-    if (hidden) {
-      hidden = false;
-      $(e.target).attr('src', 'images/cardback.jpg');
-    }else {
-      hidden = true;
+    if ($(e.target).attr('src') === 'images/cardback.jpg')  {
       $(e.target).attr('src', `${$characterImages[i]}`);
+    }else {
+      $(e.target).attr('src', 'images/cardback.jpg');
     }
   }
 
