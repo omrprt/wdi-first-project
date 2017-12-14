@@ -60,7 +60,7 @@ const charactersInPlay = [
   {name: 'Tuvok', hairstyle: 'short', rank: 'Lieutanant', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'darker', image: './images/tuvok.png'}];
 
 $(() => {
-  let moves = 6;
+  let moves = 3;
   let timer2 = '01:31';
   let qAnswer = '';
   let value = '';
