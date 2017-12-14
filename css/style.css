@@ -95,6 +95,7 @@ img {
 }
 
 .instructions p {
+  justify-content: center
   margin: 0 20px;
 }
 
@@ -129,6 +130,7 @@ img {
   align-items: center;
   text-align: center;
   flex: 1;
+
 }
 
 .guessSubmit{
@@ -212,7 +214,6 @@ img {
 
 .question-display-area p{
 display: flex;
-justify-content: center;
 align-items: center;
 margin: 10px;
 font-size: 18px;
