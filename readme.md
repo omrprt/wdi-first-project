@@ -15,7 +15,7 @@
 
 #### View Online
 
-- [View on Heroku](https;//#.herokuapp.com)
+- [View on Heroku](https://qwho.herokuapp.com/)
 - [View on Github](https://github.com/omrprt/wdi-first-project)
 
 ### [](https://github.com/omrprt/wdi-first-project#technologies-used)Technologies used
@@ -37,6 +37,7 @@ To create this project I used the following technologies:
 -Drying up the code
 -Randomizing the object array and choosing only twelve items from the array.
 -Styling with flexbox and completely understanding how it was working.
+-Difficulty adding sound.
 
 ### [](https://github.com/omrprt/wdi-first-project#where-next)Where next?
 
@@ -57,6 +58,6 @@ How can the game be extended and improved:
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* Would like to thank my instructors at GA, and classmates
+* It was inspired by Guess Who and Star Trek
+* Thanks to my family for their patience

@@ -4,7 +4,6 @@
 //A display of 9 cards(the user's lineup), would like the options to have a pull from a higher amount./
 //the lineup will start faceup, it is just a tool for the user to hide cards to narrowdown, line item will be an object with   keys(= that will be characteristics) and values(= that will be the value of the key.)
 
-
 //lineUp:
 //    Will consist of 9 images in a 3 x 3 grid(basic: set images in set places, only 9 images), css, flexbox
 //    it is a visual tool for the user to use to narrowdown their guess,
@@ -60,7 +59,7 @@ const charactersInPlay = [
   {name: 'Tuvok', hairstyle: 'short', rank: 'Lieutanant', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'darker', image: './images/tuvok.png'}];
 
 $(() => {
-  let moves = 3;
+  let moves = 6;
   let timer2 = '01:31';
   let qAnswer = '';
   let value = '';
@@ -246,7 +245,6 @@ $(() => {
 
   $guess.on('click', () => {
     if (guessValue)
-      // const qOption = $characterList.find('option:selected');
       checkGuess(guessValue);
   });
 
