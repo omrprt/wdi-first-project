@@ -175,6 +175,9 @@ $(() => {
       --seconds;
       minutes = (seconds < 0) ? --minutes : minutes;
       if (minutes < 0) {
+        $('.mystery-character').removeClass('infinite pulse');
+        transitionDelay();
+        setTimeout(checkGuess,5000);
         youLose();
       }
       seconds = (seconds < 0) ? 59 : seconds;
@@ -206,6 +209,9 @@ $(() => {
       moves--;
       checkQuestion();
       if (moves === 0) {
+        $('.mystery-character').removeClass('infinite pulse');
+        transitionDelay();
+        setTimeout(checkGuess,5000);
         youLose();
       } else {
         $('.questions-left').html(`${moves}`);
@@ -245,27 +251,41 @@ $(() => {
 
   $guess.on('click', () => {
     if (guessValue)
-      checkGuess(guessValue);
+      $('.mystery-character').removeClass('infinite pulse');
+      clearInterval(interval);
+      transitionDelay();
+      setTimeout(checkGuess,5000);
   });
+
+  function transitionDelay(){
+    $('.sitename').css({'-webkit-animation': 'adjustText 5s',
+    '-moz-animation': 'adjustText 5s',
+    '-o-animation': 'adjustText 5s',
+    'animation': 'adjustText 5s'  })
+  }
 
   // When you lose
   function youLose() {
     clearInterval(interval);
+    $('.mystery-character').addClass('shake');
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
     $countDownBar.html(`${$QImage}`);
     $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center', 'justify-content': 'center'});
     $('.question-display-area p').css({'font-size': '25px', 'margin': '25px auto'});
+    $questionDisplayArea.addClass('animated fadeIn');
     $questionDisplayArea.html(`<h2>What a shame!</h2><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart buttonHover">Restart</button>`);
   }
 
   // You win
   function youWin() {
     clearInterval(interval);
+    $('.mystery-character').removeClass('infinite pulse').addClass('fadeIn');
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
     $countDownBar.html(`${$QImage}`);
     $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center', 'justify-content': 'center'});
+    $questionDisplayArea.addClass('animated zoomIn');
     $questionDisplayArea.html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart buttonHover">Restart</button>`);
   }
 
@@ -290,6 +310,7 @@ $(() => {
 
   //game start button
   $playGame.on('click', () => {
+    $('.mystery-character').addClass('pulse');
     startCountDown();
     playGame();
   });
