@@ -58,6 +58,9 @@ const charactersInPlay = [
   {name: 'Burnham', hairstyle: 'short' , rank: 'Commander', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/burnham.png'},
   {name: 'Tuvok', hairstyle: 'short', rank: 'Lieutanant', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'darker', image: './images/tuvok.png'}];
 
+let mysteryCard = '';
+
+
 $(() => {
   let moves = 6;
   let timer2 = '01:31';
@@ -68,7 +71,7 @@ $(() => {
   let guessValue = false;
   let characterNames = null;
   let $characterImages = null;
-  let mysteryCard = null;
+  // let mysteryCard = '';
   let i = null;
 
 
@@ -237,8 +240,9 @@ $(() => {
 
 
   // Check guess
-  function checkGuess(e) {
-    if(mysteryCard.name === e) {
+  function checkGuess() {
+    console.log('in checkguess', guessValue, mysteryCard);
+    if(mysteryCard.name === guessValue) {
       youWin();
     } else youLose();
   }
@@ -250,10 +254,11 @@ $(() => {
   });
 
   $guess.on('click', () => {
+    console.log("in guess click");
     if (guessValue) {
       $('.mystery-character').removeClass('infinite pulse');
-      $gameActive.fadeOut(3000);
       clearInterval(interval);
+      $gameActive.fadeOut(3000);
       transitionDelay();
       setTimeout(checkGuess,3000);
     }
