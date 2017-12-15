@@ -3,7 +3,7 @@
 # Q Who
 
 <figure>
-  <a href="#"><img src="./images/gamescreenshot.png"></a>
+  <a href="#"><img src="./images/latestscreenshot.png"></a>
   <figcaption><a href="#" title="Q Who!?">This is my first project at GA: it inspired by the classic game Guess with a Star Trek theme.</a>.</figcaption>
 </figure>
 
@@ -17,6 +17,16 @@
 
 - [View on Heroku](https://qwho.herokuapp.com/)
 - [View on Github](https://github.com/omrprt/wdi-first-project)
+
+### [](https://github.com/omrprt/wdi-first-project#approach-taken)Approach Taken
+
+1. I started with a very short brain storming session of games and things I like.
+2. Worked on the wireframe.
+3. Worked on the CSS.
+4. Worked on the JavaScript.
+5. Had UI feedback.
+6. Worked on making it responsive.
+7. looped again and again.
 
 ### [](https://github.com/omrprt/wdi-first-project#technologies-used)Technologies used
 
@@ -43,9 +53,6 @@ To create this project I used the following technologies:
 
 How can the game be extended and improved:
 
-- adding difficulty levels:
-  *Right now it only has one setting
-
 - making the layout more responsive:
   *Currently the pictures do not line up nicely when the screen is smaller.
 
@@ -57,7 +64,7 @@ How can the game be extended and improved:
   *the code could be possibly refactored further.
 
 ## Acknowledgments
-
-* Would like to thank my instructors at GA, and classmates
-* It was inspired by Guess Who and Star Trek
-* Thanks to my family for their patience
+* Would like to thank my instructors at GA, and classmates.
+* It was inspired by Guess Who and Star Trek.
+* Thanks to Robert, Brian and Josh for their feedback.
+* Character images were taken from the Star Trek Timeline wiki.
