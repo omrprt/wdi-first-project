@@ -324,7 +324,7 @@ $(() => {
   //easy start button
   $easyGame.on('click', () => {
     moves = 6;
-    timer2 = '02:02';
+    timer2 = '02:01';
     $('.mystery-character').addClass('pulse');
     startCountDown();
     playGame();
@@ -332,7 +332,7 @@ $(() => {
 
   $mediumGame.on('click', () => {
     moves = 6;
-    timer2 = '01:32';
+    timer2 = '01:31';
     $('.mystery-character').addClass('pulse');
     startCountDown();
     playGame();
@@ -340,7 +340,7 @@ $(() => {
 
   $hardGame.on('click', () => {
     moves = 5;
-    timer2 = '01:02';
+    timer2 = '01:01';
     $('.mystery-character').addClass('pulse');
     startCountDown();
     playGame();
