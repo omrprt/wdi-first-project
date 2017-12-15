@@ -85,7 +85,7 @@ $(() => {
   const $instructions = $('.instructions');
   const $gameActive = $('.gameActive');
   const $characterList = $('.characterList');
-  // const $audio = new Audio('../audio/oneturnleft.mp3');
+  const $audio = new Audio('../audio/oneturnleft.mp3');
 
 
 
@@ -174,11 +174,12 @@ $(() => {
       let seconds = parseInt(timer[1], 10);
       --seconds;
       minutes = (seconds < 0) ? --minutes : minutes;
-      if (minutes < 0) {
+      if (minutes === 0 && seconds === 0) {
+        clearInterval(interval);
+        $gameActive.hide();
         $('.mystery-character').removeClass('infinite pulse');
         transitionDelay();
-        setTimeout(checkGuess,5000);
-        youLose();
+        setTimeout(youLose, 5000);
       }
       seconds = (seconds < 0) ? 59 : seconds;
       seconds = (seconds < 10) ? '0' + seconds : seconds;
@@ -209,16 +210,16 @@ $(() => {
       moves--;
       checkQuestion();
       if (moves === 0) {
+        $gameActive.fadeOut();
         $('.mystery-character').removeClass('infinite pulse');
         transitionDelay();
-        setTimeout(checkGuess,5000);
-        youLose();
+        setTimeout(youLose, 5000);
       } else {
         $('.questions-left').html(`${moves}`);
         $questionDisplayArea.append(`<p>Is the crew member's ${value} ${secondValue}?  ${qAnswer}</p>`);
-        // if (moves === 1){
-        //   $audio.play();
-        // }
+        if (moves === 1){
+          $audio.play();
+        }
       }
       $firstOption[0].selectedIndex = 0;
       $secondOption[0].selectedIndex = 0;
@@ -252,46 +253,49 @@ $(() => {
   $guess.on('click', () => {
     if (guessValue)
       $('.mystery-character').removeClass('infinite pulse');
+      $gameActive.fadeOut(3000);
       clearInterval(interval);
       transitionDelay();
-      setTimeout(checkGuess,5000);
+      setTimeout(checkGuess,3000);
   });
 
   function transitionDelay(){
-    $('.sitename').css({'-webkit-animation': 'adjustText 5s',
-    '-moz-animation': 'adjustText 5s',
-    '-o-animation': 'adjustText 5s',
-    'animation': 'adjustText 5s'  })
+    $('.sitename').css({'-webkit-animation': 'adjustText 3s',
+    '-moz-animation': 'adjustText 3s',
+    '-o-animation': 'adjustText 3s',
+    'animation': 'adjustText 3s'  })
   }
 
   // When you lose
   function youLose() {
     clearInterval(interval);
-    $('.mystery-character').addClass('shake');
+    $('h1').css({'font-size': '60px'});
+    $('.mystery-character').removeClass('infinite pulse').addClass('shake');
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
     $countDownBar.html(`${$QImage}`);
     $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center', 'justify-content': 'center'});
     $('.question-display-area p').css({'font-size': '25px', 'margin': '25px auto'});
     $questionDisplayArea.addClass('animated fadeIn');
-    $questionDisplayArea.html(`<h2>What a shame!</h2><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart buttonHover">Restart</button>`);
+    $questionDisplayArea.html(`<h2>What a shame!</h2><p>YOU have lost ${mysteryCard.name} to the continuum.</p><button class="restart buttonHover">Play Again?</button>`).fadeIn(1000);
   }
 
   // You win
   function youWin() {
     clearInterval(interval);
+    $('h1').css({'font-size': '60px'});
     $('.mystery-character').removeClass('infinite pulse').addClass('fadeIn');
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
     $countDownBar.html(`${$QImage}`);
     $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center', 'justify-content': 'center'});
     $questionDisplayArea.addClass('animated zoomIn');
-    $questionDisplayArea.html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart buttonHover">Restart</button>`);
+    $questionDisplayArea.html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart buttonHover">Play Again?</button>`).fadeIn(1000);
   }
 
   function playGame() {
     $instructions.hide();
-    $gameActive.show();
+    $gameActive.fadeIn();
     $countDownBar.css({'display': 'flex'});
     $('.guessSubmit').css({'display': 'flex'});
     $('.QImage').hide();
@@ -319,4 +323,10 @@ $(() => {
   $questionDisplayArea.on('click', '.restart', () => {
     location.reload();
   });
+  $(document).ready(function(){
+    $('body').css('display', 'none');
+    $('body').fadeIn(1500);
+  });
+
+
 });
