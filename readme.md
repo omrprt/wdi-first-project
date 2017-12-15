@@ -18,10 +18,6 @@
 - [View on Heroku](https://qwho.herokuapp.com/)
 - [View on Github](https://github.com/omrprt/wdi-first-project)
 
-<figure>
-  <a href="#"><img src="./images/initialhtml.png"></a>
-  <figcaption>Initial HTML CODE.</a></figcaption>
-</figure>
 ### [](https://github.com/omrprt/wdi-first-project#approach-taken)Approach Taken
 
 1. I started with a very short brain storming session of games and things I like.
@@ -57,6 +53,11 @@ To create this project I used the following technologies:
 -Randomizing the object array and choosing only twelve items from the array.
 -Styling with flexbox and completely understanding how it was working.
 -Difficulty adding sound.
+
+<figure>
+  <a href="#"><img src="./images/midpointscreenshot.png"></a>
+  <figcaption>Midpoint progress.</a></figcaption>
+</figure>
 
 ### [](https://github.com/omrprt/wdi-first-project#where-next)Where next?
 
