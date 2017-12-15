@@ -71,8 +71,11 @@ $(() => {
   let guessValue = false;
   let characterNames = null;
   let $characterImages = null;
-  // let mysteryCard = '';
   let i = null;
+  const $easyGame = $('.easy');
+  const $mediumGame = $('.medium');
+  const $hardGame = $('.hard');
+
 
 
   const $card = $('.card');
@@ -141,7 +144,7 @@ $(() => {
   }
 
   function $secondQuestion(value) {
-    let attributeList = twelveCharacters.map(function(a) {
+    const attributeList = twelveCharacters.map(function(a) {
       return a[value];
     });
     let filteredAttributes = [...new Set(attributeList)];
@@ -219,9 +222,9 @@ $(() => {
       } else {
         $('.questions-left').html(`${moves}`);
         $questionDisplayArea.append(`<p>Is the crew member's ${value} ${secondValue}?  ${qAnswer}</p>`);
-        if (moves === 1){
-          $audio.play();
-        }
+        // if (moves === 1){
+        //   $audio.play();
+        // }
       }
       $firstOption[0].selectedIndex = 0;
       $secondOption[0].selectedIndex = 0;
@@ -254,7 +257,6 @@ $(() => {
   });
 
   $guess.on('click', () => {
-    console.log("in guess click");
     if (guessValue) {
       $('.mystery-character').removeClass('infinite pulse');
       clearInterval(interval);
@@ -266,9 +268,9 @@ $(() => {
 
   function transitionDelay(){
     $('.sitename').css({'-webkit-animation': 'adjustText 3s',
-    '-moz-animation': 'adjustText 3s',
-    '-o-animation': 'adjustText 3s',
-    'animation': 'adjustText 3s'  })
+      '-moz-animation': 'adjustText 3s',
+      '-o-animation': 'adjustText 3s',
+      'animation': 'adjustText 3s'  });
   }
 
   // When you lose
@@ -299,6 +301,7 @@ $(() => {
   }
 
   function playGame() {
+    $('.questions-left').html(`${moves}`);
     $instructions.hide();
     $gameActive.fadeIn();
     $countDownBar.css({'display': 'flex'});
@@ -319,6 +322,31 @@ $(() => {
 
   //game start button
   $playGame.on('click', () => {
+    $('.mystery-character').addClass('pulse');
+    startCountDown();
+    playGame();
+  });
+
+  //easy start button
+  $easyGame.on('click', () => {
+    moves = 6;
+    timer2 = '02:02';
+    $('.mystery-character').addClass('pulse');
+    startCountDown();
+    playGame();
+  });
+
+  $mediumGame.on('click', () => {
+    moves = 6;
+    timer2 = '01:32';
+    $('.mystery-character').addClass('pulse');
+    startCountDown();
+    playGame();
+  });
+
+  $hardGame.on('click', () => {
+    moves = 5;
+    timer2 = '01:02';
     $('.mystery-character').addClass('pulse');
     startCountDown();
     playGame();
