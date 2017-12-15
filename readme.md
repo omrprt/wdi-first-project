@@ -28,7 +28,7 @@
 2. Worked on the wireframe.
 3. Worked on the CSS.
 4. Worked on the JavaScript.
-5. Had UI feedback.
+5. Had UX feedback.
 6. Worked on making it responsive.
 7. looped again and again.
 
