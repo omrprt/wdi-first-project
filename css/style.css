@@ -261,6 +261,7 @@ img {
 .footer-wrapper {
   display: block;
   text-align: center;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 979px) {
@@ -302,6 +303,7 @@ img {
   .status-bar {
     max-width: 350px;
     margin: 0 auto;
+    max-height: 100px;
   }
 
   .mystery-character img {
@@ -314,6 +316,9 @@ img {
   .countdown-bar {
     font: 18px bold;
   }
+  .countdown-bar img {
+    max-width: 100px;
+}
 
   .character-lineup ul {
     padding: 0;
@@ -332,6 +337,15 @@ img {
   }
   .question-display-area {
     min-width: 350px;
+  }
+  @keyframes adjustText {
+    display:
+    from {
+      font-size: 20px;
+    }
+    to {
+      font-size: 25px;
+    }
   }
 
   .footer-wrapper {
