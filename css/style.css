@@ -114,10 +114,32 @@ img {
   margin: 0 20px;
 }
 
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse:collapse;
+}
+
+td {
+  width: 33.33%;
+  text-align: center;
+}
+
+.yellow {
+  background-color: #c5a143;
+}
+
+.red {
+  background-color:  #a50221;
+}
+
 .buttonHover:hover {
   background-color:  #a50221;
   color: #c5a143;
   font-weight: bold;
+}
+div .gameStartButtons{
+  margin: 0 auto;
 }
 
 .playGame{
