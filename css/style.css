@@ -42,7 +42,7 @@ ul {
 }
 
 img {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .status-bar {
@@ -70,17 +70,17 @@ img {
   text-align: center;
   flex: 1;
 
-  }
+}
 
-  @keyframes adjustText {
+@keyframes adjustText {
   display:
-    from {
-      font-size: 20px;
-    }
-    to {
-      font-size: 30px;
-    }
+  from {
+    font-size: 20px;
   }
+  to {
+    font-size: 30px;
+  }
+}
 
 .QImage {
   display: flex;
@@ -124,7 +124,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  margin: 10px auto;
   background-color: #c5a143;
   font-size: 16px;
   border-radius: 20px;
@@ -198,10 +198,10 @@ img {
   justify-content: center;
 }
 .character-lineup {
-    flex: 1;
-    max-width: 550px;
-    margin: 0 auto;
-  }
+  flex: 1;
+  max-width: 550px;
+  margin: 0 auto;
+}
 
 .character-lineup ul{
   display: flex;
@@ -225,10 +225,10 @@ img {
 }
 
 .question-display-area p{
-display: flex;
-align-items: center;
-margin: 10px;
-font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  font-size: 18px;
 }
 
 .question-submit{
@@ -273,16 +273,16 @@ font-size: 18px;
 
   .mystery-character img {
     max-height: 125px;
-}
+  }
 
   .QImage img {
-  max-height: 125px;
-}
-.countdown-bar {
-  font: 18px bold;
-}
+    max-height: 125px;
+  }
+  .countdown-bar {
+    font: 18px bold;
+  }
 
-.character-lineup ul {
+  .character-lineup ul {
     padding: 0;
   }
   .character-lineup img {
@@ -297,5 +297,44 @@ font-size: 18px;
     max-width: 550px;
     margin: 0 auto;
   }
+}
+@media screen and (max-width: 550px) {
+  .status-bar {
+    max-width: 350px;
+    margin: 0 auto;
+  }
 
+  .mystery-character img {
+    max-height: 100px;
+  }
+
+  .QImage img {
+    max-height: 100px;
+  }
+  .countdown-bar {
+    font: 18px bold;
+  }
+
+  .character-lineup ul {
+    padding: 0;
+  }
+  .character-lineup img {
+    max-height: 125px;
+    max-width: 110px;
+  }
+  .main-screen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .question-display-area {
+    min-width: 350px;
+  }
+
+  .footer-wrapper {
+    max-width: 350px;
+  }
 }

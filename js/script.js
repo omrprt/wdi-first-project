@@ -85,7 +85,7 @@ $(() => {
   const $instructions = $('.instructions');
   const $gameActive = $('.gameActive');
   const $characterList = $('.characterList');
-  const $audio = new Audio('../audio/oneturnleft.mp3');
+  // const $audio = new Audio('../audio/oneturnleft.mp3');
 
 
 
@@ -206,7 +206,6 @@ $(() => {
   // Move Countdown
   $submitQuestion.on('click', () => {
     if (value && secondValue) {
-      // const questionAsked = $('.question').text();
       moves--;
       checkQuestion();
       if (moves === 0) {
