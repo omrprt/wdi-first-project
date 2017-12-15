@@ -65,7 +65,7 @@ $(() => {
   let value = '';
   let interval = null;
   let secondValue = '';
-  let guessValue = null;
+  let guessValue = false;
   let characterNames = null;
   let $characterImages = null;
   let mysteryCard = null;
@@ -179,7 +179,7 @@ $(() => {
         $gameActive.hide();
         $('.mystery-character').removeClass('infinite pulse');
         transitionDelay();
-        setTimeout(youLose, 5000);
+        setTimeout(youLose, 3000);
       }
       seconds = (seconds < 0) ? 59 : seconds;
       seconds = (seconds < 10) ? '0' + seconds : seconds;
@@ -213,7 +213,7 @@ $(() => {
         $gameActive.fadeOut();
         $('.mystery-character').removeClass('infinite pulse');
         transitionDelay();
-        setTimeout(youLose, 5000);
+        setTimeout(youLose, 3000);
       } else {
         $('.questions-left').html(`${moves}`);
         $questionDisplayArea.append(`<p>Is the crew member's ${value} ${secondValue}?  ${qAnswer}</p>`);
@@ -251,12 +251,13 @@ $(() => {
   });
 
   $guess.on('click', () => {
-    if (guessValue)
+    if (guessValue) {
       $('.mystery-character').removeClass('infinite pulse');
       $gameActive.fadeOut(3000);
       clearInterval(interval);
       transitionDelay();
       setTimeout(checkGuess,3000);
+    }
   });
 
   function transitionDelay(){
