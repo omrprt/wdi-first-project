@@ -91,7 +91,7 @@ $(() => {
   const $instructions = $('.instructions');
   const $gameActive = $('.gameActive');
   const $characterList = $('.characterList');
-  // const $audio = new Audio('../audio/oneturnleft.mp3');
+  const $audio = new Audio('./audio/oneturnleft.mp3');
 
 
 
@@ -320,12 +320,6 @@ $(() => {
 
   $card.on('click', hideCard);
 
-  //game start button
-  $playGame.on('click', () => {
-    $('.mystery-character').addClass('pulse');
-    startCountDown();
-    playGame();
-  });
 
   //easy start button
   $easyGame.on('click', () => {
