@@ -4,7 +4,7 @@
 
 <figure>
   <a href="#"><img src="./images/latestscreenshot.png"></a>
-  <figcaption><a href="#" title="Q Who!?">This is my first project at GA: it inspired by the classic game Guess with a Star Trek theme.</a>.</figcaption>
+  <figcaption><a href="#" title="Q Who!?">This is my first project at GA: it inspired by the classic game Guess with a Star Trek theme.</a></figcaption>
 </figure>
 
 ### [](https://github.com/omrprt/wdi-first-project#setup)Installation and setup
@@ -18,6 +18,10 @@
 - [View on Heroku](https://qwho.herokuapp.com/)
 - [View on Github](https://github.com/omrprt/wdi-first-project)
 
+<figure>
+  <a href="#"><img src="./images/initialhtml.png"></a>
+  <figcaption>Initial HTML CODE.</a></figcaption>
+</figure>
 ### [](https://github.com/omrprt/wdi-first-project#approach-taken)Approach Taken
 
 1. I started with a very short brain storming session of games and things I like.
@@ -27,6 +31,11 @@
 5. Had UI feedback.
 6. Worked on making it responsive.
 7. looped again and again.
+
+<figure>
+  <a href="#"><img src="./images/initialhtml.png"></a>
+  <figcaption>Initial HTML CODE.</a></figcaption>
+</figure>
 
 ### [](https://github.com/omrprt/wdi-first-project#technologies-used)Technologies used
 
@@ -54,14 +63,20 @@ To create this project I used the following technologies:
 How can the game be extended and improved:
 
 - making the layout more responsive:
-  *Currently the pictures do not line up nicely when the screen is smaller.
+ * Currently the pictures do not line up nicely when the screen is smaller.
+
 
 - restart to the play area:
-  *Currently it restarts by reloading the page and the user has to see the rules again.
+  * Currently it restarts by reloading the page and the user has to see the rules again.
+
+
+- add audio:
+    * attempted to add audio but could not implement
+
 
 - Improving the code:
-  *I am certain that there are areas of my code to be more efficient and dryer.
-  *the code could be possibly refactored further.
+  * I am certain that there are areas of my code to be more efficient and dryer.
+  * the code could be possibly refactored further.
 
 ## Acknowledgments
 * Would like to thank my instructors at GA, and classmates.
