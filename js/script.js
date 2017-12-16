@@ -250,7 +250,6 @@ $(() => {
 
   // Check guess
   function checkGuess() {
-    console.log('in checkguess', guessValue, mysteryCard);
     if(mysteryCard.name === guessValue) {
       youWin();
     } else youLose();
