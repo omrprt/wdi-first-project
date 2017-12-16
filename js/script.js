@@ -183,6 +183,7 @@ $(() => {
       --seconds;
       minutes = (seconds < 0) ? --minutes : minutes;
       if (minutes === 0 && seconds === 0) {
+        $guessSound.play();
         clearInterval(interval);
         $gameActive.hide();
         $('.mystery-character').removeClass('infinite pulse');
@@ -283,7 +284,7 @@ $(() => {
   // When you lose
   function youLose() {
     clearInterval(interval);
-    $('h1').css({'font-size': '60px'});
+    $('h1').css({'font-size': '50px'});
     $('.mystery-character').removeClass('infinite pulse').addClass('shake');
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
@@ -297,14 +298,14 @@ $(() => {
   // You win
   function youWin() {
     clearInterval(interval);
-    $('h1').css({'font-size': '60px'});
+    $('h1').css({'font-size': '50px'});
     $('.mystery-character').removeClass('infinite pulse').addClass('fadeIn');
     $('.mystery-character').html(`<img src="${mysteryCard.image}" alt="Mystery Character">`);
     $countDownBar.css({'flex-direction': 'row', 'align-items': 'center'});
     $countDownBar.html(`${$QImage}`);
     $questionDisplayArea.css({'flex-direction': 'column', 'align-items': 'center', 'justify-content': 'center'});
     $questionDisplayArea.addClass('animated zoomIn');
-    $questionDisplayArea.html(`<h2>Luck is on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart buttonHover">Play Again?</button>`).fadeIn(1000);
+    $questionDisplayArea.html(`<h2>Luck, and some good deductive skill, are on your side!</h2><p>YOU have saved ${mysteryCard.name} from an eternal existance with me.</p><button class="restart buttonHover">Play Again?</button>`).fadeIn(1000);
   }
 
   function playGame() {

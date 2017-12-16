@@ -260,7 +260,7 @@ td {
   background-color: #0099f6;
   flex: 1;
   border-radius: 20px;
-  min-width: 500px;
+  max-width: 50%;
 }
 
 .question-display-area p{
@@ -338,9 +338,9 @@ td {
     margin: 0 auto;
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 815px) {
   .status-bar {
-    max-width: 350px;
+    max-width: 100%;
     margin: 0 auto;
     max-height: 100px;
   }
@@ -349,12 +349,16 @@ td {
     max-height: 100px;
   }
 
+  h1 .title {
+  font: 16px;}
+
   .QImage img {
     max-height: 100px;
   }
   .countdown-bar {
-    font: 18px bold;
+    font: 12px bold;
   }
+
   .countdown-bar img {
     max-width: 100px;
   }
@@ -371,15 +375,13 @@ td {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    max-width: 350px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 5 auto;
   }
   .question-display-area p {
     font-size: 14px;
   }
-  .question-display-area {
-    min-width: 350px;
-  }
+
 
   div.instructions {
     max-width: 525px;
