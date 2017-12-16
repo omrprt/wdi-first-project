@@ -364,6 +364,7 @@ $(() => {
   $questionDisplayArea.on('click', '.restart', () => {
     location.reload();
   });
+
   $(document).ready(function(){
     $('body').css('display', 'none');
     $('body').fadeIn(1500);

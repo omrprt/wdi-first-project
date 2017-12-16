@@ -64,6 +64,10 @@ img {
   border-radius: 20px;
 }
 
+div.instructions {
+  max-width: 525px;
+}
+
 .status-bar {
   display: flex;
   align-items: center;
@@ -156,10 +160,6 @@ td {
   background-color:  #a50221;
   color: #c5a143;
   font-weight: bold;
-}
-div .gameStartButtons{
-  display: flex;
-justify-content: center;
 }
 
 .playGame{
