@@ -72,15 +72,12 @@ $(() => {
   let characterNames = null;
   let $characterImages = null;
   let i = null;
+
   const $easyGame = $('.easy');
   const $mediumGame = $('.medium');
   const $hardGame = $('.hard');
-
-
-
   const $card = $('.card');
   const $countDownBar = $('.countdown-bar');
-  const $playGame = $('.playGame');
   const $questionDisplayArea = $('.question-display-area');
   const $firstOption = $('.characteristics');
   const $secondOption = $('.characteristic-values');
@@ -91,7 +88,12 @@ $(() => {
   const $instructions = $('.instructions');
   const $gameActive = $('.gameActive');
   const $characterList = $('.characterList');
-  const $audio = new Audio('./audio/oneturnleft.mp3');
+  const $audio = new Audio('./audio/oneturnleft.wav');
+  const $buttonSound = new Audio('./audio/button.mp3');
+  const $hideSound = new Audio('./audio/cardhide.mp3');
+  const $startGame = new Audio('./audio/startgame.mp3');
+  const $guessSound = new Audio('./audio/guesssound.mp3');
+
 
 
 
@@ -196,7 +198,9 @@ $(() => {
 
   }
 
+  // Select question options
   $firstOption.on('change', (e) => {
+    $buttonSound.play();
     const option = $(e.target).find('option:selected');
     value = $(option).attr('value');
     $secondQuestion(value);
@@ -204,14 +208,16 @@ $(() => {
   });
 
   $secondOption.on('change', (e) => {
+    $buttonSound.play();
     const option = $(e.target).find('option:selected');
     secondValue = $(option).text();
     $secondValue.html(secondValue);
   });
 
-  // Move Countdown
+  // Submit question & Move Countdown
   $submitQuestion.on('click', () => {
     if (value && secondValue) {
+      $buttonSound.play();
       moves--;
       checkQuestion();
       if (moves === 0) {
@@ -222,9 +228,9 @@ $(() => {
       } else {
         $('.questions-left').html(`${moves}`);
         $questionDisplayArea.append(`<p>Is the crew member's ${value} ${secondValue}?  ${qAnswer}</p>`);
-        // if (moves === 1){
-        //   $audio.play();
-        // }
+        if (moves === 1){
+          $audio.play();
+        }
       }
       $firstOption[0].selectedIndex = 0;
       $secondOption[0].selectedIndex = 0;
@@ -251,6 +257,7 @@ $(() => {
   }
 
   $characterList.on('change', (e) => {
+    $buttonSound.play();
     const qOption = $(e.target).find('option:selected');
     guessValue = $(qOption).text();
     $secondValue.html(secondValue);
@@ -258,6 +265,7 @@ $(() => {
 
   $guess.on('click', () => {
     if (guessValue) {
+      $guessSound.play();
       $('.mystery-character').removeClass('infinite pulse');
       clearInterval(interval);
       $gameActive.fadeOut(3000);
@@ -309,7 +317,10 @@ $(() => {
     $('.QImage').hide();
   }
 
+
+  //Hide Card
   function hideCard(e) {
+    $hideSound.play();
     i = $(e.target).attr('value');
     if ($(e.target).attr('src') === 'images/cardback.png')  {
       $(e.target).attr('src', `${$characterImages[i]}`);
@@ -321,8 +332,9 @@ $(() => {
   $card.on('click', hideCard);
 
 
-  //easy start button
+  //start buttons
   $easyGame.on('click', () => {
+    $startGame.play();
     moves = 6;
     timer2 = '02:01';
     $('.mystery-character').addClass('pulse');
@@ -330,7 +342,9 @@ $(() => {
     playGame();
   });
 
+
   $mediumGame.on('click', () => {
+    $startGame.play();
     moves = 6;
     timer2 = '01:31';
     $('.mystery-character').addClass('pulse');
@@ -339,6 +353,7 @@ $(() => {
   });
 
   $hardGame.on('click', () => {
+    $startGame.play();
     moves = 5;
     timer2 = '01:01';
     $('.mystery-character').addClass('pulse');
