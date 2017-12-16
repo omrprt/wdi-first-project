@@ -185,7 +185,7 @@ $(() => {
       if (minutes === 0 && seconds === 0) {
         $guessSound.play();
         clearInterval(interval);
-        $gameActive.hide();
+        $gameActive.fadeOut(3000);
         $('.mystery-character').removeClass('infinite pulse');
         transitionDelay();
         setTimeout(youLose, 3000);
