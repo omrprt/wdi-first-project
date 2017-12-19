@@ -84,3 +84,4 @@ How can the game be extended and improved:
 * It was inspired by Guess Who and Star Trek.
 * Thanks to Robert, Brian and Josh for their feedback.
 * Character images were taken from the Star Trek Timeline wiki.
+* Star Trek is a copyright of CBS Studios Inc.
