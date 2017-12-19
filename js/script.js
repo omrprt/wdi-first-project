@@ -56,14 +56,18 @@ const charactersInPlay = [
   {name: 'Dukat', hairstyle: 'short' , rank: 'Gul', gender: 'male', species: 'Cardassian', affiliation: 'Cardassian Union', skintone: 'purple', image: './images/dukat.png'},
   {name: 'Garak', hairstyle: 'short' , rank: 'Civilian', gender: 'male', species: 'Cardassian', affiliation: 'Cardassian Union', skintone: 'purple', image: './images/garak.png'},
   {name: 'Burnham', hairstyle: 'short' , rank: 'Commander', gender: 'female', species: 'Human', affiliation: 'Federation', skintone: 'darker', image: './images/burnham.png'},
+  {name: 'Seska', hairstyle: 'long' , rank: 'Operative', gender: 'female', species: 'Cardassian', affiliation: 'Cardassian Union', skintone: 'darker', image: './images/seska.png'},
+  {name: 'Troi', hairstyle: 'pulled back' , rank: 'Ambassador', gender: 'female', species: 'Betazoid', affiliation: 'Federation', skintone: 'lighter', image: './images/ltroi.png'},
+  {name: 'Ilia', hairstyle: 'bald' , rank: 'Lieutanant', gender: 'female', species: 'Deltan', affiliation: 'Federation', skintone: 'lighter', image: './images/ilia.png'},
+  {name: 'Kira', hairstyle: 'short' , rank: 'Major', gender: 'female', species: 'Bajoran', affiliation: 'Bajoran Militia', skintone: 'lighter', image: './images/kira.png'},
   {name: 'Tuvok', hairstyle: 'short', rank: 'Lieutanant', gender: 'male', species: 'Vulcan', affiliation: 'Federation', skintone: 'darker', image: './images/tuvok.png'}];
 
 let mysteryCard = '';
 
 
 $(() => {
-  let moves = 6;
-  let timer2 = '01:31';
+  let moves = null;
+  let timer2 = '';
   let qAnswer = '';
   let value = '';
   let interval = null;

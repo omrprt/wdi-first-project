@@ -328,14 +328,7 @@ td {
     max-height: 125px;
     max-width: 110px;
   }
-  /* .main-screen {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    max-width: 100%;
-    margin: 0 auto;
-  } */
+
 }
 @media screen and (max-width: 815px) {
   .status-bar {
