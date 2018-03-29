@@ -11,8 +11,6 @@
 
 Your app must:
 
-Your app must:
-
 * Render a game in the browser
 * Design logic for winning & visually display which player won
 * Include separate HTML / CSS / JavaScript files
