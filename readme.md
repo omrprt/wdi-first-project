@@ -56,7 +56,7 @@ To create this project I used the following technologies:
 
 <figure>
   <a href="#"><img src="./images/midpointscreenshot.png"></a>
-  <figcaption>Midpoint progress.</a></figcaption>
+  <figcaption>Midpoint progress.</figcaption>
 </figure>
 
 ### [](https://github.com/omrprt/wdi-first-project#where-next)Where next?
@@ -72,7 +72,7 @@ How can the game be extended and improved:
 
 
 - add audio:
-    * attempted to add audio but could not implement
+    * attempted to add audio but could not implement - This has been resolved.
 
 
 - Improving the code:

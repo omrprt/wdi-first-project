@@ -346,7 +346,6 @@ $(() => {
     playGame();
   });
 
-
   $mediumGame.on('click', () => {
     $startGame.play();
     moves = 5;
