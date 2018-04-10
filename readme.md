@@ -51,7 +51,7 @@ To create this project I used the following technologies:
 
 - HTML5
 - SCSS
-- Javascript (ECMAScript 6)
+- JavaScript
 - jQuery
 - Git
 - Github
